@@ -50,6 +50,7 @@ This is a job board site with an automatic matching functionality, it has two ty
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
 
@@ -71,6 +72,7 @@ This is a job board site with an automatic matching functionality, it has two ty
     - icons8 library was used to get the Robot image.
 9. [w3schools](https://www.w3schools.com/)
     - w3schools was used regularly for reference on HTML, CSS, JavaScript, JQuery.
+10. [Flask:](https://flask.palletsprojects.com/en/1.1.x/)
 
 ## Testing
 
@@ -81,72 +83,83 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Testing User Stories from User Experience (UX) Section
 
--   #### Customers
+-   #### Individuals
+        As an individual seeking work, I want:
+    1.  An easy sign up step
 
-    1. As a customer, I want to go to one place where I can get answers about the issue I am facing
+        1. 
 
-        1. Upon entering the site, customers are presented with a clean content which are gradually revealed, making in easier to follow.
-        2. The bot (Walli) will introduce itself first and give a simple brief intro.
-        3. Customers will then see the available choices to choose the one that is closest to the issue they need and follow up intuitively to reach final answer.
+    2. A simple, straight forward, not too long profile page to fill, with ability to edit my details when I want to
 
-    2. As a customer, I want to be able to easily navigate throughout the site to find the answer I am looking for.
+        1. 
 
-        1. The whole site consists of one page.
-        2. Simply selecting the closest choice to what the a customer need (by clicking it) will lead to the final available answer on the issue.
+    3. To get my matches (jobs) as soon as I log in
 
-    3. As a customer, I want to be able to start again from the beginning to ask about something else or if I make a mistake in my query.
+        1. 
 
-        1. At the buttom of the page just above the footer, there is a reset button called "Start over" to restore the initial choices and start again.
-        2. This can happen as many times as needed, and at any point.
+    4. To be able to connect with company/organization
 
-    4. As a customer, I might not know the exact name or term for the issue I am facing, So I expect to get some help to narrow down and pinpoint my issue.
+        1. 
 
-        1. The final answers to issues are not presented right away, instead the customer will be asked several questions to narrow down the issue and provide the relevant answer.
+-   #### Companies/Organizations
+        As a(n) Company/Organization, I want to
+    1.  Easily sign up and fill my company/organization details
+
+        1. 
+
+    2. Post a job as often as I need with the ability to edit it, or delete it when I find what I want
+
+        1. 
+
+    3. Add as much or as little details of the jobs I am posting as needed
+
+        1. 
+
+    4. Get best matches of potential employees according to the job specs I decided in my job post
+
+        1. 
 
 
 ### Further Testing
 
 -   The Website was tested on browsers (Google Chrome, Internet Explorer, Microsoft Edge browsers) and it worked properly.
 -   The website was viewed on a variety of devices (Desktop, Laptop, Big LG screen, iPhone 8 & iPhone5/SE) and the responsiveness was woring properly.
--   Testing was done to ensure that all available (clickable) choices for the user as well as the reset button are working properly and the social links are liked correctly.
+-   Testing was done to ensure that all available (clickable) button are working properly and the social links are liked correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues. non were found.
 -   Tested the site using Chrome Lighthouse (for both desktop and mobile) and below are the scores:
     -   Mobile
-        -   Performance: 85
-        -   Accessibility: 96
-        -   Best Practices: 93
-        -   SEO: 92
+        -   Performance: 
+        -   Accessibility: 
+        -   Best Practices: 
+        -   SEO: 
     -   Desktop
-        -   Performance: 94
-        -   Accessibility: 96
-        -   Best Practices: 100
-        -   SEO: 90
+        -   Performance: 
+        -   Accessibility: 
+        -   Best Practices: 
+        -   SEO: 
 
 ### Known Bugs
 
--   On very big screen sizes, the footer will be stuck right below the content instead of the bottom of the screen.
--   At random times, the automatic scrolldown does not have smooth transition. It jumps instead to the bottom of the page.
+-  
 
 ## Deployment
 
 ### GitHub Pages
 
-The project was deployed to GitHub Pages using the steps in the CI video (GitHub Pages) as follows...
+The project was deployed to heroku using the steps in the CI video as follows...
 
-1. Log in to GitHub and locate the [GitHub chatbot Repository](https://github.com/AwsSG/chatbot)
-2. Go to the "Settings" tab and scroll down to GitHub Pages.
-3. Under the "source" Select the "master branch" and click "save".
-4. Scrol down on the next page to GitHub Pages and find the live link to the project.
+1. Created requirements.txt file in the terminal
+2. Created Procfile file in the terminal  
+3. Log in to heroku and click on creat new app
+4. created a uniqe name for the app and selected Europe region
+5. Set up GitHub automatic deployment by inputing my config variables first
+6. Pushed latest changes to GitHub
+7. Click "Enable automatic deployment" in heroku
+8. Click "Deploy Brach" on the master branch
 
 ## Credits
 
-### Code
 
--   The robot image file came from [icons8:](https://icons8.com/)
-
--   [Bootstrap4](https://getbootstrap.com/docs/4.5/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System and to use some dafualt styling.
-
--   The automatic scroll down, as the chat contents are added, came from [www.geeksforgeeks.org](https://www.geeksforgeeks.org/how-to-scroll-automatically-to-the-bottom-of-the-page-using-jquery/#:~:text=To%20auto%20scroll%20a%20page,-1:%20Scroll%20without%20animation)
 
 ### Content
 
