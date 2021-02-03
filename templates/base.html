@@ -6,12 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <title>wurc</title>
+    <title>WURC</title>
 </head>
 
 <body>
     <header>
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('getwurc') }}" class="brand-logo">WURC</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('getwurc') }}">Matches</a></li>
+                    <li><a href="#">Listed Companies</a></li>
+                    <li><a href="#">Listed Jobs</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('getwurc') }}">Matches</a></li>
+            <li><a href="#">Listed Companies</a></li>
+            <li><a href="#">Listed Jobs</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
 
     </header>
 
