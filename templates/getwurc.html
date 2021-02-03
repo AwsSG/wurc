@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 
     {% for job in job_matches %}
         {{ job.job_name }}<br>
@@ -20,6 +14,5 @@
             {% endfor %}
         {{ job.created_by }}<br>
     {% endfor %}
-    
-</body>
-</html>
+
+{% endblock %}
