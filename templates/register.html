@@ -9,7 +9,7 @@
             <!-- Username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons">account_box</i>
+                    <i class="material-icons prefix">account_box</i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="username">Username</label>
@@ -18,7 +18,7 @@
             <!-- password -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons">lock</i>
+                    <i class="material-icons prefix">lock</i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="password">Password</label>
@@ -26,8 +26,8 @@
             </div>
             <!-- register -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large">
-                    Register <i class="material-icons">assignment_turned_in</i>
+                <button type="submit" class="col s12 btn-large deep-purple darken-2 txt-shadow">
+                    <i class="material-icons left">assignment_turned_in</i> Register
                 </button>
             </div>
         </div>
@@ -38,7 +38,7 @@
     <div class="col s12">
         <p class="center-align">
             Already registered? Log In
-            <a href="{{ url_for('log_in') }}" class="">here!</a>
+            <a href="{{ url_for('log_in') }}" class="deep-purple-text text-darken-2">here!</a>
         </p>
     </div>
 </div>
