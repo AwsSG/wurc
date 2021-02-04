@@ -3,4 +3,12 @@
 
 <h1>Hello {{ username }}, welcome to your profile</h1>
 
+<!-- check if it is a company or individual account -->
+
+<div class="row">
+    <div class="card">
+        <a href="{{ url_for('fill_prof', username=username) }}" class="btn-small cyan darken-4 txt-shadow">Complete your profile</a>
+    </div>
+</div>
+
 {% endblock %}

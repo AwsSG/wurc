@@ -94,6 +94,17 @@ def log_out():
     return redirect(url_for("log_in"))
 
 
+@app.route("/fill_prof/<username>", methods=["GET", "POST"])
+def fill_prof(username):
+    # grab the session's user username from db
+    username = mongo.db.members.find_one(
+        {"username": session["user"]})["username"]
+    if session["user"]:
+        return render_template("fill_prof.html", username=username)
+
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

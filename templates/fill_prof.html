@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h5>Hello {{ username }}, complete your profile to get best results</h5>
+
+<div class="row">
+    <form class="col s12">
+        <!-- contact info -->
+        <h5>Personal Information</h5>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input id="fname" name="fname" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate" required>
+                <label for="fname">First Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input id="lname" name="lname" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate" required>
+                <label for="lname">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input id="email" name="email" type="email" minlength="10" maxlength="20" class="validate">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input id="phone" name="phone" type="text" class="validate" minlength="5" maxlength="15"
+                    pattern="^[0-9]{5,15}$">
+                <label for="phone">Phone number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input id="location" name="location" type="text" class="validate" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$">
+                <label for="location">Preferred Location</label>
+            </div>
+            <span class="helper-text">Will you work remotly</span>
+            <div class="switch center-align">
+                <label>
+                    No
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input id="role" name="role" type="text" class="validate" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$">
+                <label for="role">Role</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input id="drate" name="drate" type="text" class="validate" minlength="2" maxlength="15"
+                    pattern="^[0-9]{2,15}$">
+                <label for="drate">Per Day Rate</label>
+                <span class="helper-text">Besed on 39 weekly working hours</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <h5>Relevant Project experience</h5>
+        <!-- project experience 1 -->
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input id="proj_name1" name="proj_name1" type="text" class="validate" minlength="5" maxlength="30">
+                <label for="proj_name1">Project name</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="" disabled selected>Industry</option>
+                    <option value="">Option 1</option>
+                </select>
+                <label>Select</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="" disabled selected>Job Function</option>
+                    <option value="1">Option 1</option>
+                </select>
+                <label>Select</label>
+            </div>
+        </div>
+        <!-- dynamically add more input fields for more projects -->
+        <a href="#">Add project experience</a>
+        <!-- Skills -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="skills" name="skills" type="text" class="validate">
+                <label for="skills">Skills - Add 5 to 10</label>
+                <span class="helper-text">Type your skills seperated by
+                    commas (eg: Excel, Python, ... etc.)</span>
+            </div>
+        </div>
+        <!-- qualifications -->
+        <!-- to be added later -->
+
+    </form>
+</div>
+
+
+{% endblock %}
