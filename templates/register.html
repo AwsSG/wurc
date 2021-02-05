@@ -8,7 +8,7 @@
     <div class="col s12 m8 offset-m2">
         <ul class="tabs">
             <li class="tab col s6"><a class="active teal-text" href="#personal">Personal</a></li>
-            <li class="tab col s6"><a href="#company">Business</a></li>
+            <li class="tab col s6"><a class="teal-text" href="#company">Business</a></li>
         </ul>
     </div>
     <!-- personal registration -->
@@ -44,7 +44,7 @@
     </div>
     <!-- Business/Company registration -->
     <div id="company" class="col s12 m8 offset-m2">
-        <form class="col s12 no-pad" method="POST" action="">
+        <form class="col s12 no-pad" method="POST" action="{{ url_for('register_business') }}">
             <div class="card-panel">
                 <!-- Username -->
                 <div class="row">
@@ -74,6 +74,7 @@
         </form>
     </div>
 </div>
+<div class="divider"></div>
 
 <div class="row">
     <div class="col s12">
