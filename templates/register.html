@@ -3,35 +3,76 @@
 
 <h3 class="center-align">Register</h3>
 
+<!-- Selection tabs for personal or company registration -->
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel">
-            <!-- Username -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">account_box</i>
-                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="username">Username</label>
+    <div class="col s12 m8 offset-m2">
+        <ul class="tabs">
+            <li class="tab col s6"><a class="active teal-text" href="#personal">Personal</a></li>
+            <li class="tab col s6"><a href="#company">Business</a></li>
+        </ul>
+    </div>
+    <!-- personal registration -->
+    <div id="personal" class="col s12 m8 offset-m2">
+        <form class="col s12 no-pad" method="POST" action="{{ url_for('register') }}">
+            <div class="card-panel">
+                <!-- Username -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_box</i>
+                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <!-- register -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large cyan darken-4 txt-shadow">
+                        <i class="material-icons left">assignment_turned_in</i> Register
+                    </button>
                 </div>
             </div>
-            <!-- password -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">lock</i>
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="password">Password</label>
+        </form>
+    </div>
+    <!-- Business/Company registration -->
+    <div id="company" class="col s12 m8 offset-m2">
+        <form class="col s12 no-pad" method="POST" action="">
+            <div class="card-panel">
+                <!-- Username -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_box</i>
+                        <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <!-- register -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large cyan darken-4 txt-shadow">
+                        <i class="material-icons left">assignment_turned_in</i> Register
+                    </button>
                 </div>
             </div>
-            <!-- register -->
-            <div class="row">
-                <button type="submit" class="col s12 btn-large cyan darken-4 txt-shadow">
-                    <i class="material-icons left">assignment_turned_in</i> Register
-                </button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 <div class="row">

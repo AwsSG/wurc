@@ -5,4 +5,5 @@ $(document).ready(function () {
         secondaryPlaceholder: '+Tag',
     });
     $('select').formSelect();
+    $('.tabs').tabs();
 });
