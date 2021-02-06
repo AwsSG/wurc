@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Hello {{ username }}, welcome to your profile</h1>
-
-<!-- check if it is a company or individual account -->
+<h1>Hello {{ username.fname }}, welcome to your profile</h1>
 
 <div class="row">
     <div class="card">
-        <a href="{{ url_for('fill_prof', username=username) }}" class="btn-small cyan darken-4 txt-shadow">Complete your profile</a>
+
+        {{ username.fname }} <br>
+        {{ username.lname }} <br>
+        {{ username.job_role }} <br>
+
+
+        <a href="{{ url_for('fill_prof', username=username) }}" class="btn-small cyan darken-4 txt-shadow">Complete your
+            profile</a>
     </div>
 </div>
 
