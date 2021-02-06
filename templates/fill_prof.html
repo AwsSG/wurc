@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h5>Hello {{ username.capitalize }}, complete your profile to get best results</h5>
+<h5>Hello {{ username.fname|upper }}, keep your profile up to date</h5>
 
 <div class="row">
     <form class="col s12">
@@ -9,55 +9,78 @@
         <h5>Personal Information</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input id="fname" name="fname" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
-                    class="validate" required>
+                <!-- first name -->
+                <input id="fname" name="fname" value="{{ username.fname }}" type="text" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                 <label for="fname">First Name</label>
             </div>
             <div class="input-field col s12 m6">
-                <input id="lname" name="lname" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
-                    class="validate" required>
+                <!-- last name -->
+                <input id="lname" name="lname" value="{{ username.lname }}" type="text" minlength="5" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                 <label for="lname">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input id="email" name="email" type="email" minlength="10" maxlength="20" class="validate">
+                <!-- email -->
+                <input id="email" name="email" value="{{ username.email }}" type="email" minlength="10" maxlength="20"
+                    class="validate">
                 <label for="email">Email</label>
             </div>
             <div class="input-field col s12 m6">
-                <input id="phone" name="phone" type="text" class="validate" minlength="5" maxlength="15"
-                    pattern="^[0-9]{5,15}$">
+                <!-- phone number -->
+                <input id="phone" name="phone" value="{{ username.phone }}" type="text" class="validate" minlength="5"
+                    maxlength="15" pattern="^[0-9]{5,15}$">
                 <label for="phone">Phone number</label>
             </div>
         </div>
         <!-- job related inputs -->
         <div class="row">
+            <!-- role -->
             <div class="input-field col s12 m6">
-                <input id="location" name="location" type="text" class="validate" minlength="5" maxlength="15"
-                    pattern="^[a-zA-Z0-9]{5,15}$">
-                <label for="location">Preferred Location</label>
-            </div>
-            <span class="helper-text">Will you work remotly</span>
-            <div class="switch center-align">
-                <label>
-                    No
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    Yes
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <input id="role" name="role" type="text" class="validate" minlength="5" maxlength="15"
-                    pattern="^[a-zA-Z0-9]{5,15}$">
+                <input id="role" name="role" value="{{ username.role }}" type="text" class="validate" minlength="5"
+                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$">
                 <label for="role">Role</label>
             </div>
             <div class="input-field col s12 m6">
-                <input id="drate" name="drate" type="text" class="validate" minlength="2" maxlength="15"
-                    pattern="^[0-9]{2,15}$">
+                <!-- pay rate per day -->
+                <input id="drate" name="drate" value="{{ username.drate }}" type="text" class="validate" minlength="2"
+                    maxlength="15" pattern="^[0-9]{2,15}$">
                 <label for="drate">Per Day Rate</label>
                 <span class="helper-text">Besed on 39 weekly working hours</span>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Location -->
+            <div class="input-field col s12 m6">
+                <input id="location" name="location" value="{{ username.location }}" type="text" class="validate"
+                    minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$">
+                <label for="location">Preferred Location</label>
+            </div>
+            <!-- website -->
+            <div class="input-field col s12 m6">
+                <input id="website" name="website" value="{{ username.website }}" type="text" class="validate"
+                    minlength="5" maxlength="15">
+                <label for="website">Website</label>
+            </div>
+        </div>
+        <!-- remote work -->
+        <div class="row">
+            <div class="col s12 m6">
+                <span class="helper-text">Will you work remotly</span>
+                <div class="switch center-align">
+                    <label>
+                        No
+                        {% if username.remote|lower == "no" %}
+                        <input type="checkbox" checked>
+                        {% else %}
+                        <input type="checkbox">
+                        {% endif %}
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
             </div>
         </div>
         <div class="divider"></div>
@@ -97,6 +120,17 @@
         </div>
         <!-- qualifications -->
         <!-- to be added later -->
+
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large txt-shadow red darken-4">
+                    <i class="material-icons left">clear</i>Cancel
+                </a>
+                <button type="submit" class="btn-large text-shadow cyan darken-4">
+                    <i class="material-icons left">check</i>Update profile
+                </button>
+            </div>
+        </div>
 
     </form>
 </div>

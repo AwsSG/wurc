@@ -125,7 +125,7 @@ def log_out():
 def fill_prof(username):
     # grab the session's user username from db
     username = mongo.db.members.find_one(
-        {"username": session["user"]})["username"]
+        {"username": session["user"]})
     if session["user"]:
         return render_template("fill_prof.html", username=username)
 
