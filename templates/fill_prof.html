@@ -4,7 +4,7 @@
 <h5>Hello {{ username.fname|upper }}, keep your profile up to date</h5>
 
 <div class="row">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('edit_prof', prof_id=username._id) }}">
         <!-- contact inputs -->
         <h5>Personal Information</h5>
         <div class="row">

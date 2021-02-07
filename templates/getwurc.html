@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+{% if session.user %}
+
     {% for job in job_matches %}
         {{ job.job_name }}<br>
         {{ job.job_func }}<br>
@@ -14,5 +17,10 @@
             {% endfor %}
         {{ job.created_by }}<br>
     {% endfor %}
+{% else %}
+
+    <h1>Landing content</h1>
+
+{% endif %}
 
 {% endblock %}

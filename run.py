@@ -128,7 +128,7 @@ def fill_prof(username):
     job_func = mongo.db.job_func.find().sort("func", 1)
     # grab the session's user username from db
     username = mongo.db.members.find_one(
-        {"username": session["user"]})
+        {"_id": ObjectId(username)})
     if session["user"]:
         return render_template(
             "fill_prof.html",
@@ -140,10 +140,14 @@ def fill_prof(username):
 
 
 @app.route("/edit_prof/<prof_id>", methods=["GET", "POST"])
-def edit_task(prof_id):
+def edit_prof(prof_id):
     if request.method == "POST":
+        reg_inputs = mongo.db.members.find_one({"_id": ObjectId(prof_id)})
         remote = "yes" if request.form.get("remote") else "no"
         updated = {
+            "username": reg_inputs["username"],
+            "password": reg_inputs["password"],
+            "company": reg_inputs["company"],
             "fname": request.form.get("fname"),
             "lname": request.form.get("lname"),
             "email": request.form.get("email"),
