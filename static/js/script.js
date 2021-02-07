@@ -6,4 +6,7 @@ $(document).ready(function () {
     });
     $('select').formSelect();
     $('.tabs').tabs();
+    $("#addExpInput").click(function () {
+        $("#cloneInputs").clone(true).appendTo(".copieble_input");
+    });
 });
