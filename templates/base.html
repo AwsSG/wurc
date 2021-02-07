@@ -35,14 +35,17 @@
         </nav>
         <!-- mobile (side) navigation -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a class="deep-purple-text text-darken-2" href="{{ url_for('getwurc') }}">Matches</a></li>
-            <li><a class="deep-purple-text text-darken-2" href="#">Listed Companies</a></li>
-            <li><a class="deep-purple-text text-darken-2" href="#">Listed Jobs</a></li>
-            <li><a class="deep-purple-text text-darken-2"
-                    href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-            <li><a class="deep-purple-text text-darken-2" href="{{ url_for('log_in') }}">Log in</a></li>
-            <li><a class="deep-purple-text text-darken-2" href="{{ url_for('register') }}">Register</a></li>
-            <li><a class="deep-purple-text text-darken-2" href="{{ url_for('log_out') }}">Log out</a></li>
+            {% if session.user %}
+            <li><a class="teal-text text-darken-4" href="{{ url_for('getwurc') }}">Matches</a></li>
+            <li><a class="teal-text text-darken-4" href="#">Listed Companies</a></li>
+            <li><a class="teal-text text-darken-4" href="#">Listed Jobs</a></li>
+            <li><a class="teal-text text-darken-4" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+            </li>
+            <li><a class="teal-text text-darken-4" href="{{ url_for('log_out') }}">Log out</a></li>
+            {% else %}
+            <li><a class="teal-text text-darken-4" href="{{ url_for('log_in') }}">Log in</a></li>
+            <li><a class="teal-text text-darken-4" href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
         </ul>
 
     </header>

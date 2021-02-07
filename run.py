@@ -123,13 +123,40 @@ def log_out():
 
 @app.route("/fill_prof/<username>", methods=["GET", "POST"])
 def fill_prof(username):
+    # generating selection options from db
+    industries = mongo.db.industry.find().sort("ind_name", 1)
+    job_func = mongo.db.job_func.find().sort("func", 1)
     # grab the session's user username from db
     username = mongo.db.members.find_one(
         {"username": session["user"]})
     if session["user"]:
-        return render_template("fill_prof.html", username=username)
+        return render_template(
+            "fill_prof.html",
+            username=username,
+            industries=industries,
+            job_func=job_func)
 
     return redirect(url_for("login"))
+
+
+@app.route("/edit_prof/<prof_id>", methods=["GET", "POST"])
+def edit_task(prof_id):
+    if request.method == "POST":
+        remote = "yes" if request.form.get("remote") else "no"
+        updated = {
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
+            "email": request.form.get("email"),
+            "phone": request.form.get("phone"),
+            "role": request.form.get("role"),
+            "drate": request.form.get("drate"),
+            "location": request.form.get("location"),
+            "website": request.form.get("website"),
+            "remote": remote
+        }
+        mongo.db.members.update({"_id": ObjectId(prof_id)}, updated)
+        flash("Your profile was updated successfully!")
+        return redirect(url_for('profile', username=session['user']))
 
 
 if __name__ == "__main__":
