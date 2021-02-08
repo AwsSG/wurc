@@ -19,9 +19,13 @@ Skills needed:<br>
 {% endfor %}
 {% else %}
 
-<img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero image" class="responsive-img">
+<img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero image" class="responsive-img full-width">
 
-<a href="{{ url_for('register') }}" class="btn-large">Register now!</a>
+<div class="row">
+    <div class="col">
+        <a href="{{ url_for('register') }}" class="btn-large cyan darken-4 txt-shadow">Register!</a>
+    </div>
+</div>
 
 
 <div class="row">

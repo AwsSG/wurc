@@ -37,7 +37,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "company": False
+            "company": "false"
         }
         mongo.db.members.insert_one(register)
 
@@ -63,7 +63,7 @@ def register_business():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "company": True
+            "company": "true"
         }
         mongo.db.members.insert_one(register)
 
@@ -161,6 +161,11 @@ def edit_prof(prof_id):
         mongo.db.members.update({"_id": ObjectId(prof_id)}, updated)
         flash("Your profile was updated successfully!")
         return redirect(url_for('profile', username=session['user']))
+
+
+@app.route("/post_job")
+def post_job():
+    return render_template("post_job.html")
 
 
 if __name__ == "__main__":
