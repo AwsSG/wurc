@@ -4,22 +4,56 @@
 
 {% if session.user %}
 
-    {% for job in job_matches %}
-        {{ job.job_name }}<br>
-        {{ job.job_func }}<br>
-        {{ job.industry }}<br>
-        {{ job.job_desc }}<br>
-        {{ job.location }}<br>
-        {{ job.type }}<br>
-        Skills needed:<br>
-            {% for skill in job.skills %}
-                {{ skill }}<br>
-            {% endfor %}
-        {{ job.created_by }}<br>
-    {% endfor %}
+{% for job in job_matches %}
+{{ job.job_name }}<br>
+{{ job.job_func }}<br>
+{{ job.industry }}<br>
+{{ job.job_desc }}<br>
+{{ job.location }}<br>
+{{ job.type }}<br>
+Skills needed:<br>
+{% for skill in job.skills %}
+{{ skill }}<br>
+{% endfor %}
+{{ job.created_by }}<br>
+{% endfor %}
 {% else %}
 
-    <h1>Landing content</h1>
+<img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero image" class="responsive-img">
+
+<a href="{{ url_for('register') }}" class="btn-large">Register now!</a>
+
+
+<div class="row">
+    <!-- Source for the promo text: https://energyresourcing.com/blog/7-advantages-of-contract-work/ -->
+    <div class="col s12 m4 center-align">
+        <!-- Promo Content 1 -->
+        <i class="large material-icons">trending_up</i>
+        <h4>High demand</h4>
+        <p>Contract work is currently in high demand, with most economists predicting this job sector will keep growing.
+            Companies have short-term projects and specialised jobs they need completed that don’t require then to hire
+            a full-time resource. Because of this there are a wealth of opportunities available that fit your skills,
+            experience and interest.</p>
+    </div>
+    <div class="col s12 m4 center-align">
+        <!-- Promo Content 2 -->
+        <i class="large material-icons">shuffle</i>
+        <h4>Flexibility</h4>
+        <p>Unlike full-time work, contract work allows for great flexibility. Depending on the role, you will have
+            greater control over hours worked, and the duties performed. You are able to pursue work that doesn’t
+            take over your whole life, while supplementing your income without the commitment required of a full-time
+            job. You are able to take work when it is most convenient for you.</p>
+    </div>
+    <div class="col s12 m4 center-align">
+        <!-- Promo Content 3 -->
+        <i class="large material-icons">euro_symbol</i>
+        <h4>Higher pay</h4>
+        <p>Contract work can often provide an opportunity for a higher rate of pay than a full-time salary. Contract
+            work and freelancing, allows you to take on as many jobs as you can handle, and for you to charge by the
+            hour or by the project.</p>
+    </div>
+
+</div>
 
 {% endif %}
 
