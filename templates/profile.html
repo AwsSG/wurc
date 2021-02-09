@@ -35,7 +35,7 @@
         <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-small cyan darken-4 txt-shadow">
             <i class="material-icons left">edit</i>
             Update profile</a>
-    {% if username.company == false %}
+    {% if username.company == true %}
         <a href="{{ url_for('post_job') }}" class="btn-small cyan darken-4 txt-shadow">
             <i class="material-icons left">assignment_ind</i>
             Post a job</a>

@@ -43,7 +43,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "company": "false"
+            "company": False
         }
         mongo.db.members.insert_one(register)
 
@@ -69,7 +69,7 @@ def register_business():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "company": "true"
+            "company": True
         }
         mongo.db.members.insert_one(register)
 
@@ -90,8 +90,8 @@ def log_in():
 
         if existing_user:
             # ensure hashed password matches what the user provided
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("profile", username=session["user"]))
