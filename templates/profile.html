@@ -31,18 +31,14 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col">
+<div class="row center-page">
         <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-small cyan darken-4 txt-shadow">
             <i class="material-icons left">edit</i>
             Update profile</a>
-    </div>
     {% if username.company == false %}
-    <div class="col">
         <a href="{{ url_for('post_job') }}" class="btn-small cyan darken-4 txt-shadow">
             <i class="material-icons left">assignment_ind</i>
             Post a job</a>
-    </div>
     {% endif %}
 </div>
 
