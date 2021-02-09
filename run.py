@@ -162,6 +162,8 @@ def edit_prof(prof_id):
             "drate": request.form.get("drate"),
             "location": request.form.get("location"),
             "website": request.form.get("website"),
+            "industry": request.form.get("industry"),
+            "desc": request.form.get("desc"),
             "remote": remote
         }
         mongo.db.members.update({"_id": ObjectId(prof_id)}, updated)
