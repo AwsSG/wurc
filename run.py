@@ -173,7 +173,11 @@ def edit_prof(prof_id):
 
 @app.route("/post_job")
 def post_job():
-    return render_template("post_job.html")
+    # generating selection options from db
+    industries = mongo.db.industry.find().sort("ind_name", 1)
+    job_func = mongo.db.job_func.find().sort("func", 1)
+    return render_template("post_job.html", industries=industries,
+            job_func=job_func)
 
 
 if __name__ == "__main__":

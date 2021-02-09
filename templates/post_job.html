@@ -1,6 +1,99 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>post a job</h1>
+<h1>Post a job</h1>
+
+<div class="row">
+    <form class="col s12" method="POST" action="">
+
+        <div class="row">
+            <!-- role/job title -->
+            <div class="input-field col s12 m6">
+                <input id="role" name="role" value="" type="text" class="validate" minlength="5" maxlength="15">
+                <label for="role">Role</label>
+            </div>
+            <!-- Location -->
+            <div class="input-field col s12 m6">
+                <input id="location" name="location" value="" type="text" class="validate" minlength="5" maxlength="15">
+                <label for="location">Location</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Project name -->
+            <div class="input-field col s12 m4">
+                <input id="proj_name1" name="proj_name1" type="text" class="validate" minlength="5" maxlength="30">
+                <label for="proj_name1">Project name</label>
+            </div>
+            <!-- Industry -->
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="" disabled selected>Industry</option>
+                    {% for industry in industries %}
+                    <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+            <!-- Job function -->
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="" disabled selected>Job Function</option>
+                    {% for func in job_func %}
+                    <option value="{{ func.func }}">{{ func.func }}</option>
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Description -->
+            <div class="input-field col s12">
+                <textarea id="textarea" name="desc" value="" class="materialize-textarea"></textarea>
+                <label for="textarea">Description</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6">
+                <span class="helper-text">Is this remote job?</span>
+                <div class="switch center-align">
+                    <label>
+                        No
+                        <input type="checkbox" name="remote" checked>
+                        <input type="checkbox" name="remote">
+                        <span class="lever"></span>
+                        Yes
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills input -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="skills" name="skills" type="text" class="validate">
+                <label for="skills">Skills needed - Add 5 to 10</label>
+                <span class="helper-text">Type needed skills seperated by
+                    commas (eg: Excel, Python, ... etc.)</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- Cancel -->
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large txt-shadow red darken-4">
+                    <i class="material-icons left">clear</i>Cancel
+                </a>
+                <!-- submit -->
+                <button type="submit" class="btn-large text-shadow cyan darken-4">
+                    <i class="material-icons left">check</i>Post job
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
 
 {% endblock %}
