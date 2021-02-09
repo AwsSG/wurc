@@ -19,9 +19,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/getwurc")
 def getwurc():
-    member = mongo.db.members.find_one(
-        {"username": session["user"]})
     matches = mongo.db.job_list.find()
+    if session.get('user'):
+        member = mongo.db.members.find_one(
+                 {"username": session["user"]})
+    else:
+        return render_template("getwurc.html", job_matches=matches,
+                               member="no member")
     return render_template("getwurc.html", job_matches=matches, member=member)
 
 
