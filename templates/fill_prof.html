@@ -74,10 +74,10 @@
                 <div class="switch center-align">
                     <label>
                         No
-                        {% if username.remote|lower == "no" %}
-                        <input type="checkbox" name="remote" checked>
-                        {% else %}
+                        {% if username.remote == "no" %}
                         <input type="checkbox" name="remote">
+                        {% else %}
+                        <input type="checkbox" name="remote" checked>
                         {% endif %}
                         <span class="lever"></span>
                         Yes
