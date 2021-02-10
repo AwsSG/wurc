@@ -60,3 +60,7 @@ flex: 1 0 auto;
 .right-side {
     float: right;
 }
+
+.tight {
+    margin-bottom: 3px;
+}

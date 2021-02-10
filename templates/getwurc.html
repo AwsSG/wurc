@@ -1,6 +1,7 @@
 {% extends "base.html" %}
     {% if not session.user %}
         <!-- display hero image -->
+        <!-- source for hero image: https://www.pexels.com/ -->
         {% block hero_image %}
         <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero image" class="responsive-img">
         {% endblock %}
@@ -13,7 +14,7 @@
         {% if member['company'] == true %}
         <!-- if business user -->
 
-                <p>Matches for each posted job for the company</p>
+                <p class="btn-large">Matches for each posted job for the company</p>
 
 
         {% else %}

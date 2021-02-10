@@ -16,22 +16,144 @@
     <div class="row">
         <div class="col s12 m8">
             <div class="card-panel">
-
-                <h5>{{ username.fname|capitalize }} {{ username.lname|capitalize }}</h5>
-                <h6><strong>{{ username.role }}</strong></h6>
-                <p>{{ username.location|capitalize }}</p>
-                <p>{{ username.email }}</p>
-                <p>{{ username.phone }}</p>
-                <p>{{ username.drate }} &euro;</p>
-                <p>{{ username.website }}</p>
-                <p>Remote work: <span>{{ username.remote|upper }}</span></p>
-
-                <!-- creating a chip for each skill in skills key -->
-                {% for skill in username.skills.split(',') %}
-                <div class="chip">
-                    {{- skill -}}
+                <!-- name -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Full Name:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.fname|capitalize }} {{ username.lname|capitalize }}</h6>
+                    </div>
                 </div>
-                {% endfor %}
+                <div class="divider"></div>
+                <!-- role -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Role:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.role }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- email -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Email:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.email }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- phone -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Phone:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.phone }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- location -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Based in:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.location }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- daily rate -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Daily rate:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.drate }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- remote work -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Will work remotly:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.remote|upper }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- website -->
+                <div class="row tight">
+                    <div class="col s6 m4">
+                        <h6><strong>Website:</strong></h6>
+                    </div>
+                    <div class="col s6 m8">
+                        <h6>{{ username.website }}</h6>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <!-- experience 1 -->
+                <div class="row tight">
+                    <div class="col">
+                        <h6><strong>Experience:</strong></h6>
+                    </div>
+                </div>
+                <div class="row tight">
+                    <div class="col s12 m4">
+                        <h6>{{ username.proj_role1 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.industry1 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.job_func1 }}</h6>
+                    </div>
+                </div>
+                <!-- add if there is experience 2 -->
+                {% if username.proj_role2 != "" %}
+                <div class="row tight">
+                    <div class="col s12 m4">
+                        <h6>{{ username.proj_role2 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.industry2 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.job_func2 }}</h6>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- add if there is experience 3 -->
+                {% if username.proj_role2 != "" %}
+                <div class="row tight">
+                    <div class="col s12 m4">
+                        <h6>{{ username.proj_role3 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.industry3 }}</h6>
+                    </div>
+                    <div class="col s12 m4">
+                        <h6>{{ username.job_func3 }}</h6>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="divider"></div>
+                <!-- Skills -->
+                <div class="row tight">
+                    <div class="col s12">
+                        <!-- creating a chip for each skill in skills key -->
+                        <h6 class=""><strong>Skills:</strong></h6><br>
+                        {% for skill in username.skills.split(',') %}
+                        <div class="chip">
+                            {{- skill -}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -67,13 +189,14 @@
         <div class="col s12 m8">
             <div class="card-panel">
 
-                <h4>Company Profile</h4>
-                <p>{{ username.location|capitalize }}</p>
-                <p>{{ username.email }}</p>
-                <p>{{ username.phone }}</p>
-                <p>{{ username.desc }}</p>
+                <h6>{{ username.location|capitalize }}</h6>
+                <h6>{{ username.email }}</h6>
+                <h6>{{ username.phone }}</h6>
+                <h6>{{ username.desc }}</h6>
 
-                
+                <div class="divider"></div>
+
+                <h6>Current job openings</h6>
                 <!-- jobs posted by this business user -->
                 <ul class="collapsible expandable">
                     {% for job in jobs %}
@@ -87,10 +210,10 @@
                             <div>
                                 <!-- delete job -->
                                 <a href="{{ url_for('delete_job', job_id=job._id) }}" class="right-side delete">
-                                    <i class="material-icons red-text text-darken-4 txt-shadow">clear</i></a>
+                                    <i class="material-icons red-text text-darken-4">highlight_off</i></a>
                                 <!-- edit job -->
                                 <a href="{{ url_for('edit_job', job_id=job._id) }}" class="right-side">
-                                    <i class="material-icons cyan-text text-darken-4 txt-shadow">edit</i></a>
+                                    <i class="material-icons cyan-text text-darken-4">border_color</i></a>
                             </div>
                         </div>
                         <div class="collapsible-body">
