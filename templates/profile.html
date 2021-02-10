@@ -56,6 +56,7 @@
                 <!-- jobs posted by this business user -->
                 <ul class="collapsible expandable">
                     {% for job in jobs %}
+                    {% if session["user"] == job.created_by %}
                     <li>
                         <div class="collapsible-header flex-box">
                             <div>
@@ -64,7 +65,7 @@
                             </div>
                             <div>
                                 <!-- delete job -->
-                                <a href="" class="right-side">
+                                <a href="{{ url_for('delete_job', job_id=job._id) }}" class="right-side delete">
                                     <i class="material-icons red-text text-darken-4 txt-shadow">clear</i></a>
                                 <!-- edit job -->
                                 <a href="{{ url_for('edit_job', job_id=job._id) }}" class="right-side">
@@ -75,6 +76,7 @@
                             <p>{{ job.desc }}</p>
                         </div>
                     </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
 
