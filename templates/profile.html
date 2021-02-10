@@ -217,7 +217,15 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
+                            <h6>{{ job.proj_name }}</h6>
                             <p>{{ job.desc }}</p>
+                            <p>Remote: {{ job.remote }}</p>
+                            <p>Skills required:</p>
+                            {% for skill in job.skills.split(',') %}
+                            <div class="chip">
+                                {{- skill -}}
+                            </div>
+                            {% endfor %}
                         </div>
                     </li>
                     {% endif %}
