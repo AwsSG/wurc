@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="row center-page">
-            <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-small cyan darken-4 txt-shadow">
+            <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-large cyan darken-4 txt-shadow">
                 <i class="material-icons left">edit</i>
                 Update profile</a>
     </div>
@@ -57,9 +57,19 @@
                 <ul class="collapsible expandable">
                     {% for job in jobs %}
                     <li>
-                        <div class="collapsible-header">
-                            <i class="material-icons">chevron_right</i>
-                            <strong>{{ job.role }}</strong>: {{ job.location }}
+                        <div class="collapsible-header flex-box">
+                            <div>
+                            <i class="material-icons">expand_more</i>
+                                <strong>{{ job.role }}</strong>: {{ job.location }}
+                            </div>
+                            <div>
+                                <!-- delete job -->
+                                <a href="" class="right-side">
+                                    <i class="material-icons red-text text-darken-4 txt-shadow">clear</i></a>
+                                <!-- edit job -->
+                                <a href="" class="right-side">
+                                    <i class="material-icons cyan-text text-darken-4 txt-shadow">edit</i></a>
+                            </div>
                         </div>
                         <div class="collapsible-body">
                             <p>{{ job.desc }}</p>
@@ -84,11 +94,13 @@
     </div>
 
     <div class="row center-page">
-        <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-small cyan darken-4 txt-shadow">
+        <!-- update profile -->
+        <a href="{{ url_for('fill_prof', username=username._id) }}" class="btn-large cyan darken-4 txt-shadow">
             <i class="material-icons left">edit</i>
         Update profile</a>
 
-        <a href="{{ url_for('post_job') }}" class="btn-small cyan darken-4 txt-shadow">
+        <!-- post a job -->
+        <a href="{{ url_for('post_job') }}" class="btn-large cyan darken-4 txt-shadow">
             <i class="material-icons left">assignment_ind</i>
         Post a job</a>
     </div>

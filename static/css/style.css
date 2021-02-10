@@ -51,3 +51,12 @@ flex: 1 0 auto;
 .center-page {
     text-align: center;
 }
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side {
+    float: right;
+}
