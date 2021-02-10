@@ -89,34 +89,107 @@
         <!-- previous experience inputs -->
         <h5>Relevant Project experience</h5>
         <!-- project experience 1 -->
-        <div class="row copieble_input">
-            <div id="cloneInputs">
-                <div class="input-field col s12 m4">
-                    <input id="proj_name1" name="proj_name1" type="text" class="validate" minlength="5" maxlength="30">
-                    <label for="proj_name1">Project name</label>
-                </div>
-                <div class="input-field col s12 m4">
-                    <select>
-                        <option value="" disabled selected>Industry</option>
-                        {% for industry in industries %}
-                        <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Select</label>
-                </div>
-                <div class="input-field col s12 m4">
-                    <select>
-                        <option value="" disabled selected>Job Function</option>
-                        {% for func in job_func %}
-                        <option value="{{ func.func }}">{{ func.func }}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Select</label>
-                </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input id="proj_role1" name="proj_role1" value="{{ username.proj_role1 }}" type="text" class="validate" minlength="5" maxlength="30">
+                <label for="proj_role1">Role/title</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="industry1">
+                    <option value="" disabled selected>Industry</option>
+                    {% for industry in industries %}
+                        {% if industry.ind_name == username.industry1 %}
+                            <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
+                        {% else %}
+                            <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="job_func1">
+                    <option value="" disabled selected>Job Function</option>
+                    {% for func in job_func %}
+                        {% if func.func == username.job_func1 %}
+                            <option value="{{ func.func }}" selected>{{ func.func }}</option>
+                        {% else %}
+                            <option value="{{ func.func }}">{{ func.func }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
             </div>
         </div>
-        <!-- dynamically add more input fields for more projects -->
-        <p id="addExpInput">Add project experience</p>
+        
+        <!-- project experience 2 -->
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input id="proj_role2" name="proj_role2" value="{{ username.proj_role2 }}" type="text" class="validate" minlength="5" maxlength="30">
+                <label for="proj_role2">Role/title</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="industry2">
+                    <option value="" disabled selected>Industry</option>
+                    {% for industry in industries %}
+                        {% if industry.ind_name == username.industry2 %}
+                            <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
+                        {% else %}
+                            <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="job_func2">
+                    <option value="" disabled selected>Job Function</option>
+                    {% for func in job_func %}
+                        {% if func.func == username.job_func2 %}
+                            <option value="{{ func.func }}" selected>{{ func.func }}</option>
+                        {% else %}
+                            <option value="{{ func.func }}">{{ func.func }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+        </div>
+
+        <!-- project experience 3 -->
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input id="proj_role3" name="proj_role3" value="{{ username.proj_role3 }}" type="text" class="validate" minlength="5" maxlength="30">
+                <label for="proj_role3">Role/title</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="industry3">
+                    <option value="" disabled selected>Industry</option>
+                    {% for industry in industries %}
+                        {% if industry.ind_name == username.industry3 %}
+                            <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
+                        {% else %}
+                            <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select name="job_func3">
+                    <option value="" disabled selected>Job Function</option>
+                    {% for func in job_func %}
+                        {% if func.func == username.job_func3 %}
+                            <option value="{{ func.func }}" selected>{{ func.func }}</option>
+                        {% else %}
+                            <option value="{{ func.func }}">{{ func.func }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Select</label>
+            </div>
+        </div>
+
         <!-- Skills input -->
         <div class="row">
             <div class="input-field col s12">

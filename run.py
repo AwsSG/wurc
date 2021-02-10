@@ -165,6 +165,16 @@ def edit_prof(prof_id):
             "location": request.form.get("location"),
             "website": request.form.get("website"),
             "industry": request.form.get("industry"),
+            "proj_role1": request.form.get("proj_role1"),
+            "industry1": request.form.get("industry1"),
+            "job_func1": request.form.get("job_func1"),
+            "proj_role2": request.form.get("proj_role2"),
+            "industry2": request.form.get("industry2"),
+            "job_func2": request.form.get("job_func2"),
+            "proj_role3": request.form.get("proj_role3"),
+            "industry3": request.form.get("industry3"),
+            "job_func3": request.form.get("job_func3"),
+            "skills": request.form.get("skills"),
             "desc": request.form.get("desc"),
             "remote": remote
         }
