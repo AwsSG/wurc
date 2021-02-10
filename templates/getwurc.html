@@ -26,8 +26,10 @@
                 {{ job.location }}<br>
                 {{ job.type }}<br>
                 Skills needed:<br>
-                {% for skill in job.skills %}
-                {{ skill }}<br>
+                {% for skill in job.skills.split(',') %}
+                <div class="chip">
+                    {{- skill -}}
+                </div>
                 {% endfor %}
                 {{ job.created_by }}<br>
             {% endfor %}

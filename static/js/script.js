@@ -22,4 +22,6 @@ $(document).ready(function () {
         }
         return true;
     });
+    /* copyright year */
+    $("#copyright").text(new Date().getFullYear());
 });
