@@ -113,8 +113,10 @@ def profile(username):
     # grab the session's user username from db
     username = mongo.db.members.find_one(
         {"username": session["user"]})
+    # get jobs from job_list
+    jobs = list(mongo.db.job_list.find())
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, jobs=jobs)
 
     return redirect(url_for("log_in"))
 
@@ -130,8 +132,8 @@ def log_out():
 @app.route("/fill_prof/<username>", methods=["GET", "POST"])
 def fill_prof(username):
     # generating selection options from db
-    industries = mongo.db.industry.find().sort("ind_name", 1)
-    job_func = mongo.db.job_func.find().sort("func", 1)
+    industries = list(mongo.db.industry.find().sort("ind_name", 1))
+    job_func = list(mongo.db.job_func.find().sort("func", 1))
     # grab the session's user username from db
     username = mongo.db.members.find_one(
         {"_id": ObjectId(username)})
@@ -171,8 +173,25 @@ def edit_prof(prof_id):
         return redirect(url_for('profile', username=session['user']))
 
 
-@app.route("/post_job")
+@app.route("/post_job", methods=["GET", "POST"])
 def post_job():
+    if request.method == "POST":
+        remote = "yes" if request.form.get("remote") else "no"
+        job = {
+            "role": request.form.get("role"),
+            "location": request.form.get("location"),
+            "proj_name": request.form.get("proj_name"),
+            "industry": request.form.get("industry"),
+            "jfunc": request.form.get("jfunc"),
+            "desc": request.form.get("desc"),
+            "remote": remote,
+            "skills": request.form.get("skills"),
+            "created_by": session["user"]
+        }
+        mongo.db.job_list.insert_one(job)
+        flash("Job posted successfully!")
+        return redirect(url_for('profile', username=session['user']))
+
     # generating selection options from db
     industries = mongo.db.industry.find().sort("ind_name", 1)
     job_func = mongo.db.job_func.find().sort("func", 1)

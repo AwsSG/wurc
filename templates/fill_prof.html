@@ -186,7 +186,7 @@
                 <label for="blocation">Location</label>
             </div>
             <!-- Industry -->
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m6">
                 <select name="industry" value>
                     <option value="" disabled selected>Industry</option>
                     {% for industry in industries %}
@@ -203,7 +203,7 @@
         <div class="row">
             <!-- Description -->
             <div class="input-field col s12">
-                <textarea id="textarea" name="desc" value="{{ username.desc }}" class="materialize-textarea"></textarea>
+                <textarea id="textarea" name="desc" class="materialize-textarea">{{ username.desc }}</textarea>
                 <label for="textarea">Description</label>
             </div>
         </div>

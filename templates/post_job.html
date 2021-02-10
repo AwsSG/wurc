@@ -14,7 +14,7 @@
             </div>
             <!-- Location -->
             <div class="input-field col s12 m6">
-                <input id="location" name="location" value="" type="text" class="validate" minlength="5" maxlength="15">
+                <input id="location" name="location" value="" type="text" class="validate" minlength="3" maxlength="15">
                 <label for="location">Location</label>
             </div>
         </div>
@@ -22,12 +22,12 @@
         <div class="row">
             <!-- Project name -->
             <div class="input-field col s12 m4">
-                <input id="proj_name1" name="proj_name1" type="text" class="validate" minlength="5" maxlength="30">
-                <label for="proj_name1">Project name</label>
+                <input id="proj_name" name="proj_name" type="text" class="validate" minlength="3" maxlength="30">
+                <label for="proj_name">Project name</label>
             </div>
             <!-- Industry -->
             <div class="input-field col s12 m4">
-                <select>
+                <select name="industry">
                     <option value="" disabled selected>Industry</option>
                     {% for industry in industries %}
                     <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
@@ -37,7 +37,7 @@
             </div>
             <!-- Job function -->
             <div class="input-field col s12 m4">
-                <select>
+                <select name="jfunc">
                     <option value="" disabled selected>Job Function</option>
                     {% for func in job_func %}
                     <option value="{{ func.func }}">{{ func.func }}</option>
@@ -61,7 +61,6 @@
                 <div class="switch center-align">
                     <label>
                         No
-                        <input type="checkbox" name="remote" checked>
                         <input type="checkbox" name="remote">
                         <span class="lever"></span>
                         Yes
