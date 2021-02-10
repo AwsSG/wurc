@@ -199,6 +199,33 @@ def post_job():
             job_func=job_func)
 
 
+@app.route("/edit_job/<job_id>", methods=["GET", "POST"])
+def edit_job(job_id):
+    if request.method == "POST":
+        remote = "yes" if request.form.get("remote") else "no"
+        job_update = {
+            "role": request.form.get("role"),
+            "location": request.form.get("location"),
+            "proj_name": request.form.get("proj_name"),
+            "industry": request.form.get("industry"),
+            "jfunc": request.form.get("jfunc"),
+            "desc": request.form.get("desc"),
+            "remote": remote,
+            "skills": request.form.get("skills"),
+            "created_by": session["user"]
+        }
+        mongo.db.job_list.update({"_id": ObjectId(job_id)}, job_update)
+        flash("Changes applied successfully!")
+        return redirect(url_for('profile', username=session['user']))
+
+    job = mongo.db.job_list.find_one({"_id": ObjectId(job_id)})
+    # generating selection options from db
+    industries = mongo.db.industry.find().sort("ind_name", 1)
+    job_func = mongo.db.job_func.find().sort("func", 1)
+    return render_template("edit_job.html", industries=industries,
+            job_func=job_func, job=job)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
