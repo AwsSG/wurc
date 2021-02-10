@@ -26,6 +26,13 @@
                 <p>{{ username.website }}</p>
                 <p>Remote work: <span>{{ username.remote|upper }}</span></p>
 
+                <!-- creating a chip for each skill in skills key -->
+                {% for skill in username.skills.split(',') %}
+                <div class="chip">
+                    {{- skill -}}
+                </div>
+                {% endfor %}
+
             </div>
         </div>
         <!-- Side info stats -->
