@@ -16,17 +16,40 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def match(skills_personal, skills_req):
+    # the overal matching score
+    score = 0
+    # turning skills in db into list
+    skill_list_personal = list(x.strip() for x in skills_personal.split(','))
+    skill_list_job = list(x.strip() for x in skills_req.split(','))
+
+    # find the total number of skills in a job
+    total = len(skill_list_job)
+
+    # getting the matches from the two lists
+    matches = list(set(skill_list_job) & set(skill_list_personal))
+
+    score = "{:.0%}".format((len(matches)/total))
+
+    return score, matches
+
+
 @app.route("/")
 @app.route("/getwurc")
 def getwurc():
-    matches = mongo.db.job_list.find()
+    all_jobs = mongo.db.job_list.find()
     if session.get('user'):
         member = mongo.db.members.find_one(
                  {"username": session["user"]})
+        match_list = []
+        for job in all_jobs:
+            match_job = match(member["skills"], job["skills"])
+            match_list.append(match_job)
     else:
-        return render_template("getwurc.html", job_matches=matches,
+        return render_template("getwurc.html", job_matches=all_jobs,
                                member="no member")
-    return render_template("getwurc.html", job_matches=matches, member=member)
+    return render_template("getwurc.html", job_matches=all_jobs, member=member,
+                           match_list=match_list)
 
 
 @app.route("/register", methods=["GET", "POST"])
