@@ -20,8 +20,10 @@
         {% else %}
         <!-- if personal user -->
 
-        {{ match_list[2][0] }}
-        {% for matched_skill in match_list[2][1] %}
+        <br>
+
+        {{ match_list[0][0] }}
+        {% for matched_skill in match_list[0][1] %}
         <div class="chip">
             {{- matched_skill -}}
         </div>

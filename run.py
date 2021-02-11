@@ -29,7 +29,7 @@ def match(skills_personal, skills_req):
     # getting the matches from the two lists
     matches = list(set(skill_list_job) & set(skill_list_personal))
 
-    score = "{:.0%}".format((len(matches)/total))
+    score = int(("{:.0%}".format((len(matches)/total))).strip("%"))
 
     return score, matches
 
@@ -45,6 +45,7 @@ def getwurc():
         for job in all_jobs:
             match_job = match(member["skills"], job["skills"])
             match_list.append(match_job)
+        match_list.sort(reverse=True)
     else:
         return render_template("getwurc.html", job_matches=all_jobs,
                                member="no member")
