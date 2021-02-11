@@ -230,7 +230,7 @@ def post_job():
     industries = mongo.db.industry.find().sort("ind_name", 1)
     job_func = mongo.db.job_func.find().sort("func", 1)
     return render_template("post_job.html", industries=industries,
-            job_func=job_func)
+                           job_func=job_func)
 
 
 @app.route("/edit_job/<job_id>", methods=["GET", "POST"])
@@ -257,7 +257,7 @@ def edit_job(job_id):
     industries = mongo.db.industry.find().sort("ind_name", 1)
     job_func = mongo.db.job_func.find().sort("func", 1)
     return render_template("edit_job.html", industries=industries,
-            job_func=job_func, job=job)
+                           job_func=job_func, job=job)
 
 
 @app.route("/delete_job/<job_id>")
