@@ -68,3 +68,17 @@ flex: 1 0 auto;
 .card-panel .left-highlight {
     border-left: 3px solid #e0e0e0;
 }
+
+.collapsible .job-match {
+    padding: 5px 14px;
+}
+
+.score {
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    padding: 5px;
+    margin-top: 8px;
+    text-align: center;
+}
+

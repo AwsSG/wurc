@@ -19,27 +19,41 @@
 
         {% else %}
         <!-- if personal user -->
+        <h5>Greetings {{member.fname}}, here are your top matches based on your skills:</h5><br>
 
-        <br>
-
-        <p>{{ match_list }}</p>
-
-
-            {% for job in job_matches %}
-                {{ job.job_name }}<br>
-                {{ job.job_func }}<br>
-                {{ job.industry }}<br>
-                {{ job.job_desc }}<br>
-                {{ job.location }}<br>
-                {{ job.type }}<br>
-                Skills needed:<br>
-                {% for skill in job.skills.split(',') %}
-                <div class="chip">
-                    {{- skill -}}
-                </div>
-                {% endfor %}
-                {{ job.created_by }}<br>
+          <ul class="collapsible">
+            {% for match in match_list %}
+            {% if match[0][0] !=0 %}
+                <li>
+                {% for job in job_matches %}
+                {% if job.role == match[1] %}
+                    <div class="collapsible-header flex-box job-match">
+                        <p><strong>{{ match[1] }}</strong></p>
+                        <div class="right-side score teal darken-3 grey-text text-lighten-5">
+                            <strong>{{ match[0][0] }}</strong>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <p><strong>Location: </strong>{{ job.location }}</p>
+                        {% if job.remote == "yes" %}
+                        <p>This job is <strong>Remote</strong></p>
+                        {% endif %}
+                        <p><strong>Job description:</strong></p>
+                        <p>{{ job.desc }}</p>
+                        <p>Matched skills:</p>
+                        {% for skill in match[0][1] %}
+                            <div class="chip teal darken-3 grey-text text-lighten-5">
+                                {{- skill -}}
+                            </div>
+                        {% endfor %}
+                        <p class="right-align">By: {{ job.created_by }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </li>
+            {% endif %}
             {% endfor %}
+        </ul>
 
         {% endif %}
 
