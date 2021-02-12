@@ -96,12 +96,13 @@
                     </div>
                 </div>
                 <div class="divider"></div>
-                <!-- experience 1 -->
                 <div class="row tight">
                     <div class="col">
                         <h6><strong>Experience:</strong></h6>
                     </div>
                 </div>
+                <!-- experience 1 -->
+                <blockquote class="left-highlight">
                 <div class="row tight">
                     <div class="col s12 m4">
                         <h6>{{ username.proj_role1 }}</h6>
@@ -113,8 +114,10 @@
                         <h6>{{ username.job_func1 }}</h6>
                     </div>
                 </div>
+                </blockquote>
                 <!-- add if there is experience 2 -->
-                {% if username.proj_role2 != "" %}
+                {% if username.proj_role2 %}
+                <blockquote class="left-highlight">
                 <div class="row tight">
                     <div class="col s12 m4">
                         <h6>{{ username.proj_role2 }}</h6>
@@ -126,9 +129,11 @@
                         <h6>{{ username.job_func2 }}</h6>
                     </div>
                 </div>
+                </blockquote>
                 {% endif %}
                 <!-- add if there is experience 3 -->
-                {% if username.proj_role2 != "" %}
+                {% if username.proj_role2 %}
+                <blockquote class="left-highlight">
                 <div class="row tight">
                     <div class="col s12 m4">
                         <h6>{{ username.proj_role3 }}</h6>
@@ -140,6 +145,7 @@
                         <h6>{{ username.job_func3 }}</h6>
                     </div>
                 </div>
+                </blockquote>
                 {% endif %}
                 <div class="divider"></div>
                 <!-- Skills -->
@@ -192,7 +198,7 @@
                 <h6>{{ username.location|capitalize }}</h6>
                 <h6>{{ username.email }}</h6>
                 <h6>{{ username.phone }}</h6>
-                <h6>{{ username.desc }}</h6>
+                <p>{{ username.desc }}</p>
 
                 <div class="divider"></div>
 
@@ -207,12 +213,12 @@
                             <i class="material-icons">expand_more</i>
                                 <strong>{{ job.role }}</strong>: {{ job.location }}
                             </div>
-                            <div>
+                            <div class="right-side">
                                 <!-- delete job -->
-                                <a href="{{ url_for('delete_job', job_id=job._id) }}" class="right-side delete">
+                                <a href="{{ url_for('delete_job', job_id=job._id) }}" class="delete">
                                     <i class="material-icons red-text text-darken-4">highlight_off</i></a>
                                 <!-- edit job -->
-                                <a href="{{ url_for('edit_job', job_id=job._id) }}" class="right-side">
+                                <a href="{{ url_for('edit_job', job_id=job._id) }}">
                                     <i class="material-icons cyan-text text-darken-4">border_color</i></a>
                             </div>
                         </div>
