@@ -77,7 +77,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "company": False
+            "company": False,
+            "skills": ""
         }
         mongo.db.members.insert_one(register)
 
