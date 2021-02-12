@@ -14,7 +14,7 @@
         {% if member['company'] == true %}
         <!-- if business user -->
 
-                <p class="btn-large">Matches for each posted job for the company</p>
+                <p>{{ match_list }}</p>
 
 
         {% else %}
@@ -22,12 +22,7 @@
 
         <br>
 
-        {{ match_list[0][0] }}
-        {% for matched_skill in match_list[0][1] %}
-        <div class="chip">
-            {{- matched_skill -}}
-        </div>
-        {% endfor %}
+        <p>{{ match_list }}</p>
 
 
             {% for job in job_matches %}

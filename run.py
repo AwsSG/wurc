@@ -37,15 +37,25 @@ def match(skills_personal, skills_req):
 @app.route("/")
 @app.route("/getwurc")
 def getwurc():
-    all_jobs = mongo.db.job_list.find()
+    all_jobs = list(mongo.db.job_list.find())
+    all_candidates = list(mongo.db.members.find({"company": False}))
     if session.get('user'):
         member = mongo.db.members.find_one(
                  {"username": session["user"]})
         match_list = []
-        for job in all_jobs:
-            match_job = match(member["skills"], job["skills"])
-            match_list.append(match_job)
-        match_list.sort(reverse=True)
+        # if user is not a company (personal)
+        if not member["company"]:
+            for job in all_jobs:
+                match_job = match(member["skills"], job["skills"])
+                match_list.append([match_job, job["role"]])
+            match_list.sort(reverse=True)
+        else:  # if user is a company
+            for candidate in all_candidates:
+                for job in all_jobs:
+                    if job["created_by"] == session["user"]:  # get relevent
+                        match_job = match(candidate["skills"], job["skills"])
+                        match_list.append([match_job, candidate["username"]])
+            match_list.sort(reverse=True)
     else:
         return render_template("getwurc.html", job_matches=all_jobs,
                                member="no member")
