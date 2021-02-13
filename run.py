@@ -39,6 +39,7 @@ def match(skills_personal, skills_req):
 def getwurc():
     all_jobs = list(mongo.db.job_list.find())
     all_candidates = list(mongo.db.members.find({"company": False}))
+    all_companies = list(mongo.db.members.find({"company": True}))
     if session.get('user'):
         member = mongo.db.members.find_one(
                  {"username": session["user"]})
@@ -60,7 +61,8 @@ def getwurc():
         return render_template("getwurc.html", job_matches=all_jobs,
                                member="no member")
     return render_template("getwurc.html", job_matches=all_jobs, member=member,
-                           match_list=match_list)
+                           match_list=match_list, all_companies=all_companies,
+                           all_candidates=all_candidates)
 
 
 @app.route("/register", methods=["GET", "POST"])
