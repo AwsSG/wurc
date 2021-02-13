@@ -20,6 +20,27 @@ flex: 1 0 auto;
     width: 100%;
 }
 
+.hero-container {
+  position: relative;
+}
+
+.text-box {
+  margin-top:50px;
+  background-color: lightgrey;
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  opacity: 0.5;
+  top: -12px;
+  left: 35px;
+  text-align: center;
+  border: 2px solid silver;
+}
+
+.content {
+  padding: 0.2em;
+}
+
 /* changing the color style for the tabs was taken from the bellow link */
 /* https://stackoverflow.com/questions/41406689/change-the-color-of-tab-text-and-the-underline-in-materialize-framework */
 
