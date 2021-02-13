@@ -32,21 +32,42 @@
                 {% for candidate in all_candidates %}
                 {% if match[1] == candidate.username %} <!-- grab the matched candidate record -->
                     <div class="collapsible-header flex-box job-match">
-                        <p><strong>{{ candidate.fname }}</strong></p>
+                        <p>
+                            {% if candidate.fname %}
+                                <strong>{{ candidate.fname }} </strong>
+                            {% else %}
+                                Potential candidate
+                            {% endif %}
+
+                            {% if candidate.role %}
+                                {{ candidate.role }}
+                            {% else %}
+                                Potential candidate
+                            {% endif %}
+                        </p>
                         <div class="right-side score teal darken-3 grey-text text-lighten-5">
                             <strong>{{ match[0][0] }}</strong>
                         </div>
                     </div>
                     <div class="collapsible-body">
-                        <p><strong>Full name:</strong> {{ candidate.fname }} {{ candidate.lname }}</p>
-                        <p><strong>Location:</strong> {{ candidate.location }}</p> 
-                        <p>{{ candidate.website }}</p> 
-                        {% if candidate.remote == "yes" %}
-                        <p>This candidate can <strong>work remotly</strong></p>
-                        {% endif %}
-
-                        <p><strong>Experience:</strong></p>
-                        <p>{{ candidate.proj_role1 }} &#124; {{ candidate.industry1 }} &#124; {{ candidate.job_func1 }}</p>
+                            {% if candidate.fname %}
+                                <p><strong>Full name:</strong> {{ candidate.fname }} {{ candidate.lname }}</p>
+                                <p><strong>Location:</strong> {{ candidate.location }}</p>
+                                <p>{{ candidate.website }}</p>
+                                {% if candidate.remote == "yes" %}
+                                    <p>This candidate can <strong>work remotly</strong></p>
+                                {% endif %}
+                                <p><strong>Experience:</strong></p>
+                                <p>{{ candidate.proj_role1 }} &#124; {{ candidate.industry1 }} &#124; {{ candidate.job_func1 }}</p>
+                                {% if candidate.proj_role2 %}
+                                <p>{{ candidate.proj_role2 }} &#124; {{ candidate.industry2 }} &#124; {{ candidate.job_func2 }}</p>
+                                {% endif %}
+                                {% if candidate.proj_role3 %}
+                                <p>{{ candidate.proj_role3 }} &#124; {{ candidate.industry3 }} &#124; {{ candidate.job_func3 }}</p>
+                                {% endif %}
+                            {% else %}
+                                This candidate did not provide profile details yet
+                            {% endif %}
 
                         <p>Matched skills:</p>
                         {% for skill in match[0][1] %}
@@ -109,7 +130,11 @@
                         <p class="right-align">
                             {% for company in all_companies %} <!-- grab the company name who posted the job -->
                                 {% if company.username == job.created_by %}
+                                    {% if company.fname %}
                                     By: {{ company.fname }}
+                                    {% else %}
+                                    Company name not avialable
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </p>
