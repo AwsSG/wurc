@@ -1,3 +1,4 @@
+![WURC](wireframes/mockup.png)
 # WURC: The auto matching Job board
 
 wurc project live page [here](https://wurc.herokuapp.com/)
@@ -149,15 +150,17 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues. non were found.
 -   Tested the site using Chrome Lighthouse (for both desktop and mobile) and below are the scores:
     -   Mobile
-        -   Performance: 
-        -   Accessibility: 
-        -   Best Practices: 
-        -   SEO: 
+    ![Mobile](wireframes/lighthouse.png)
+        -   Performance: 86
+        -   Accessibility: 96
+        -   Best Practices: 100
+        -   SEO: 91
     -   Desktop
-        -   Performance: 
-        -   Accessibility: 
-        -   Best Practices: 
-        -   SEO: 
+    ![landing](wireframes/lighthousem.png)
+        -   Performance: 97
+        -   Accessibility: 96
+        -   Best Practices: 100
+        -   SEO: 89
 
 ### Known Bugs
 
