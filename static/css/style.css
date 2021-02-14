@@ -16,9 +16,9 @@ flex: 1 0 auto;
     line-height: 1.5;
 }
 
-/* .hero-img {
+.hero-img {
     filter: brightness(50%);
-} */
+}
 
 /* changing the color style for the tabs was taken from the bellow link */
 /* https://stackoverflow.com/questions/41406689/change-the-color-of-tab-text-and-the-underline-in-materialize-framework */
