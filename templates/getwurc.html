@@ -1,18 +1,36 @@
 {% extends "base.html" %}
+{% block hero_image %}
     {% if not session.user %}
-        <!-- display hero image -->
+    <!-- display hero image -->
         <!-- source for hero image: https://www.pexels.com/ -->
-        {% block hero_image %}
-        <div class="hero-container">
-            <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero image" class="responsive-img">
-            <div class="text-box">
-                <div class="content">
-                    <h5>Some text</h5>
+          <div class="slider">
+            <ul class="slides">
+                <!-- personal user promo -->
+            <li>
+                <img src="{{ url_for('static', filename='images/hero.jpg') }}" class="hero-img">
+                <div class="caption left-align">
+                <h3>Stop looking for work, let work finds you instead!</h3>
+                <h5 class="light grey-text text-lighten-3">Get the jop that matches your skills.</h5>
+                    <div class="row center-page">
+                        <a href="{{ url_for('register') }}" class="btn-large cyan darken-4 txt-shadow">Register!</a>
+                    </div>
                 </div>
-            </div>
+            </li>
+            <!-- Business user promo -->
+            <li>
+                <img src="{{ url_for('static', filename='images/hero.jpg') }}" class="hero-img">
+                <div class="caption left-align">
+                <h3>Find the right hire for your company</h3>
+                <h5 class="light grey-text text-lighten-3">Job-specific matched candidates to choose from</h5><br>
+                    <div class="row center-page">
+                        <a href="{{ url_for('register') }}" class="btn-large cyan darken-4 txt-shadow">Register!</a>
+                    </div>
+                </div>
+            </li>
+            </ul>
         </div>
-        {% endblock %}
     {% endif %}
+{% endblock %}
 {% block content %}
 
 {% if session.user %}
@@ -158,10 +176,6 @@
 
 {% else %}
 <!-- view for non registered members/first time visitors -->
-        <div class="row center-page">
-                <a href="{{ url_for('register') }}" class="btn-large cyan darken-4 txt-shadow landing">Register!</a>
-        </div>
-
 
         <div class="row">
             <!-- Source for the promo text: https://energyresourcing.com/blog/7-advantages-of-contract-work/ -->

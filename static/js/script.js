@@ -24,4 +24,5 @@ $(document).ready(function () {
     });
     /* copyright year */
     $("#copyright").text(new Date().getFullYear());
+    $('.slider').slider({interval: 6000});
 });
