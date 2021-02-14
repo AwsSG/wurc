@@ -40,136 +40,155 @@
         <!-- if business user -->
 
         <h3>Greetings {{member.fname}},</h3>
-        <h5>Here are the highst scoring candidates for your listed jobs:</h5><br>
-        <div class="row">
-            <div class="col s6">
-                <h6><strong>Job</strong></h6>
-            </div>
-            <div class="col s6 right-align">
-                <h6><strong>Matching score</strong></h6>
-            </div>
-        </div>
 
-        <ul class="collapsible">
-            {% for match in match_list %}
-            {% if match[0][0] >= 60 %} <!-- get only matches that are 60% or above -->
-                <li>
-                {% for candidate in all_candidates %}
-                {% if match[1] == candidate.username %} <!-- grab the matched candidate record -->
-                    <div class="collapsible-header flex-box job-match">
-                        <p>
-                            {% if candidate.fname %}
-                                <strong>{{ candidate.fname }} </strong>
-                            {% else %}
-                                Potential candidate
-                            {% endif %}
+            {% if match_list[0][0][0] == 0 %} <!-- if the first match (highest) is 0, then show no matches contents -->
 
-                            {% if candidate.role %}
-                                {{ candidate.role }}
-                            {% else %}
-                                Potential candidate
-                            {% endif %}
-                        </p>
-                        <div class="right-side score teal darken-3 grey-text text-lighten-5">
-                            <strong>{{ match[0][0] }}</strong>
-                        </div>
+            <h5>Unfortunately, there are no matches at the moment. Check back later.</h5>
+            <h6>In the meantime, make sure that your profile is up to date and your skills reflect your experience.</h6>
+
+            {% else %}
+
+
+                <h5>Here are the highst scoring candidates for your listed jobs:</h5><br>
+                <div class="row">
+                    <div class="col s6">
+                        <h6><strong>Job</strong></h6>
                     </div>
-                    <div class="collapsible-body">
-                            {% if candidate.fname %}
-                                <p><strong>Full name:</strong> {{ candidate.fname }} {{ candidate.lname }}</p>
-                                <p><strong>Location:</strong> {{ candidate.location }}</p>
-                                <p>{{ candidate.website }}</p>
-                                {% if candidate.remote == "yes" %}
-                                    <p>This candidate can <strong>work remotly</strong></p>
-                                {% endif %}
-                                <p><strong>Experience:</strong></p>
-                                <p>{{ candidate.proj_role1 }} &#124; {{ candidate.industry1 }} &#124; {{ candidate.job_func1 }}</p>
-                                {% if candidate.proj_role2 %}
-                                <p>{{ candidate.proj_role2 }} &#124; {{ candidate.industry2 }} &#124; {{ candidate.job_func2 }}</p>
-                                {% endif %}
-                                {% if candidate.proj_role3 %}
-                                <p>{{ candidate.proj_role3 }} &#124; {{ candidate.industry3 }} &#124; {{ candidate.job_func3 }}</p>
-                                {% endif %}
-                            {% else %}
-                                This candidate did not provide profile details yet
-                            {% endif %}
+                    <div class="col s6 right-align">
+                        <h6><strong>Matching score</strong></h6>
+                    </div>
+                </div>
 
-                        <p>Matched skills:</p>
-                        {% for skill in match[0][1] %}
-                            <div class="chip teal darken-3 grey-text text-lighten-5">
-                                {{- skill -}}
+                <ul class="collapsible">
+                    {% for match in match_list %}
+                    {% if match[0][0] != 0 %} <!-- get only matches that are above 0 -->
+                        <li>
+                        {% for candidate in all_candidates %}
+                        {% if match[1] == candidate.username %} <!-- grab the matched candidate record -->
+                            <div class="collapsible-header flex-box job-match">
+                                <p>
+                                    {% if candidate.fname %}
+                                        <strong>{{ candidate.fname }} </strong>
+                                    {% else %}
+                                        Potential candidate
+                                    {% endif %}
+
+                                    {% if candidate.role %}
+                                        {{ candidate.role }}
+                                    {% else %}
+                                        Potential candidate
+                                    {% endif %}
+                                </p>
+                                <div class="right-side score teal darken-3 grey-text text-lighten-5">
+                                    <strong>{{ match[0][0] }}</strong>
+                                </div>
                             </div>
-                        {% endfor %}
-                        <p class="right-align">
-                            <span>{{ candidate.email }}</span><br>
-                            <span>{{ candidate.phone }}</span>
-                        </p>
-                    </div>
-                {% endif %}
-                {% endfor %}
-                </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
+                            <div class="collapsible-body">
+                                    {% if candidate.fname %}
+                                        <p><strong>Full name:</strong> {{ candidate.fname }} {{ candidate.lname }}</p>
+                                        <p><strong>Location:</strong> {{ candidate.location }}</p>
+                                        <p>{{ candidate.website }}</p>
+                                        {% if candidate.remote == "yes" %}
+                                            <p>This candidate can <strong>work remotly</strong></p>
+                                        {% endif %}
+                                        <p><strong>Experience:</strong></p>
+                                        <p>{{ candidate.proj_role1 }} &#124; {{ candidate.industry1 }} &#124; {{ candidate.job_func1 }}</p>
+                                        {% if candidate.proj_role2 %}
+                                        <p>{{ candidate.proj_role2 }} &#124; {{ candidate.industry2 }} &#124; {{ candidate.job_func2 }}</p>
+                                        {% endif %}
+                                        {% if candidate.proj_role3 %}
+                                        <p>{{ candidate.proj_role3 }} &#124; {{ candidate.industry3 }} &#124; {{ candidate.job_func3 }}</p>
+                                        {% endif %}
+                                    {% else %}
+                                        This candidate did not provide profile details yet
+                                    {% endif %}
 
+                                <p>Matched skills:</p>
+                                {% for skill in match[0][1] %}
+                                    <div class="chip teal darken-3 grey-text text-lighten-5">
+                                        {{- skill -}}
+                                    </div>
+                                {% endfor %}
+                                <p class="right-align">
+                                    <span>{{ candidate.email }}</span><br>
+                                    <span>{{ candidate.phone }}</span>
+                                </p>
+                            </div>
+                        {% endif %}
+                        {% endfor %}
+                        </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
 
         {% else %}
         <!-- if personal user -->
-        <h3>Greetings {{member.fname}},</h3>
-        <h5>Here are your top scored matches based on your skills:</h5><br>
-        <div class="row">
-            <div class="col s6">
-                <h6><strong>Job</strong></h6>
-            </div>
-            <div class="col s6 right-align">
-                <h6><strong>Matching score</strong></h6>
-            </div>
-        </div>
 
-          <ul class="collapsible">
-            {% for match in match_list %}
-            {% if match[0][0] >= 60 %} <!-- get only matches that are 60% or above -->
-                <li>
-                {% for job in job_matches %}
-                {% if job.role == match[1] %} <!-- grap the matched job record -->
-                    <div class="collapsible-header flex-box job-match">
-                        <p><strong>{{ match[1] }}</strong></p>
-                        <div class="right-side score teal darken-3 grey-text text-lighten-5">
-                            <strong>{{ match[0][0] }}</strong>
-                        </div>
+        <h3>Greetings {{member.fname}},</h3>
+
+            {% if match_list[0][0][0] == 0 %} <!-- if the first match (highest) is 0, then show no matches contents -->
+
+            <h5>Unfortunately, there are no matches at the moment. Check back later.</h5>
+            <h6>In the meantime, make sure that your profile is up to date and your skills reflect your experience.</h6>
+
+            {% else %}
+                                
+                <h5>Here are your top scored matches based on your skills:</h5><br>
+                <div class="row">
+                    <div class="col s6">
+                        <h6><strong>Job</strong></h6>
                     </div>
-                    <div class="collapsible-body">
-                        <p><strong>Location: </strong>{{ job.location }}</p>
-                        {% if job.remote == "yes" %}
-                        <p>This job is <strong>Remote</strong></p>
-                        {% endif %}
-                        <p><strong>Job description:</strong></p>
-                        <p>{{ job.desc }}</p>
-                        <p>Matched skills:</p>
-                        {% for skill in match[0][1] %}
-                            <div class="chip teal darken-3 grey-text text-lighten-5">
-                                {{- skill -}}
+                    <div class="col s6 right-align">
+                        <h6><strong>Matching score</strong></h6>
+                    </div>
+                </div>
+
+                <ul class="collapsible">
+                    {% for match in match_list %}
+                    {% if match[0][0] != 0 %} <!-- get only matches that are above 0 -->
+                        <li>
+                        {% for job in job_matches %}
+                        {% if job.role == match[1] %} <!-- grap the matched job record -->
+                            <div class="collapsible-header flex-box job-match">
+                                <p><strong>{{ match[1] }}</strong></p>
+                                <div class="right-side score teal darken-3 grey-text text-lighten-5">
+                                    <strong>{{ match[0][0] }}</strong>
+                                </div>
                             </div>
-                        {% endfor %}
-                        <p class="right-align">
-                            {% for company in all_companies %} <!-- grab the company name who posted the job -->
-                                {% if company.username == job.created_by %}
-                                    {% if company.fname %}
-                                    By: {{ company.fname }}
-                                    {% else %}
-                                    Company name not avialable
-                                    {% endif %}
+                            <div class="collapsible-body">
+                                <p><strong>Location: </strong>{{ job.location }}</p>
+                                {% if job.remote == "yes" %}
+                                <p>This job is <strong>Remote</strong></p>
                                 {% endif %}
+                                <p><strong>Job description:</strong></p>
+                                <p>{{ job.desc }}</p>
+                                <p>Matched skills:</p>
+                                {% for skill in match[0][1] %}
+                                    <div class="chip teal darken-3 grey-text text-lighten-5">
+                                        {{- skill -}}
+                                    </div>
+                                {% endfor %}
+                                <p class="right-align">
+                                    {% for company in all_companies %} <!-- grab the company name who posted the job -->
+                                        {% if company.username == job.created_by %}
+                                            {% if company.fname %}
+                                            By: {{ company.fname }}
+                                            {% else %}
+                                            Company name not avialable
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            {% endif %}
                             {% endfor %}
-                        </p>
-                    </div>
+                        </li>
                     {% endif %}
                     {% endfor %}
-                </li>
+                </ul>
             {% endif %}
-            {% endfor %}
-        </ul>
 
         {% endif %}
 

@@ -27,7 +27,7 @@
             <div class="input-field col s12 m6">
                 <!-- email -->
                 <input id="email" name="email" value="{{ username.email }}" type="email" minlength="10" maxlength="30"
-                    pattern="^[a-zA-Z0-9-_',@]{10,30}$" class="validate">
+                    pattern="^[a-zA-Z0-9-_',@.]{10,30}$" class="validate">
                 <label for="email">Email</label>
             </div>
             <div class="input-field col s12 m6">
@@ -42,7 +42,7 @@
             <!-- role -->
             <div class="input-field col s12 m6">
                 <input id="role" name="role" value="{{ username.role }}" type="text" class="validate" minlength="2"
-                    maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
+                    maxlength="40" pattern="^[a-zA-Z0-9 -_',.]{2,40}$" required>
                 <label for="role">Role</label>
             </div>
             <div class="input-field col s12 m6">
@@ -57,7 +57,7 @@
             <!-- Location -->
             <div class="input-field col s12 m6">
                 <input id="location" name="location" value="{{ username.location }}" type="text" class="validate"
-                    minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
+                    minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',.]{2,40}$" required>
                 <label for="location">Preferred Location</label>
             </div>
             <!-- website -->
@@ -92,8 +92,8 @@
         <div class="row">
             <div class="input-field col s12 m4">
                 <input id="proj_role1" name="proj_role1" value="{{ username.proj_role1 }}" type="text" class="validate"
-                minlength="5" maxlength="30" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
-                <label for="proj_role1">Role/title</label>
+                minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
+                <label for="proj_role1">1st role/title</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry1" required>
@@ -127,8 +127,8 @@
         <div class="row">
             <div class="input-field col s12 m4">
                 <input id="proj_role2" name="proj_role2" value="{{ username.proj_role2 }}" type="text" class="validate"
-                minlength="5" maxlength="30" pattern="^[a-zA-Z0-9 -_',]{2,40}$">
-                <label for="proj_role2">Role/title</label>
+                minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$">
+                <label for="proj_role2">2nd role/title</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry2">
@@ -162,8 +162,8 @@
         <div class="row">
             <div class="input-field col s12 m4">
                 <input id="proj_role3" name="proj_role3" value="{{ username.proj_role3 }}" type="text" class="validate"
-                minlength="5" maxlength="30" pattern="^[a-zA-Z0-9 -_',]{2,40}$">
-                <label for="proj_role3">Role/title</label>
+                minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$">
+                <label for="proj_role3">3rd role/title</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry3">
@@ -197,7 +197,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="skills" name="skills" type="text" value="{{ username.skills }}" class="validate"
-                pattern="^[a-zA-Z0-9 -_',]{5,300}$" required>
+                minlength="5" maxlength="300" pattern="^[a-zA-Z0-9 -_',]{5,300}$" required>
                 <label for="skills">Skills - Add 5 to 10</label>
                 <span class="helper-text">Type your skills seperated by
                     commas (eg: Excel, Python, ... etc.)</span>
@@ -230,13 +230,13 @@
         <div class="row">
             <div class="input-field col s12 m6">
                 <!-- business name -->
-                <input id="bname" name="fname" value="{{ username.fname }}" type="text" minlength="5" maxlength="15"
+                <input id="bname" name="fname" value="{{ username.fname }}" type="text" minlength="2" maxlength="40"
                     class="validate" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
                 <label for="bname">Business name</label>
             </div>
             <div class="input-field col s12 m6">
                 <!-- website -->
-                <input id="bwebsite" name="website" value="{{ username.website }}" type="text" minlength="5" maxlength="15"
+                <input id="bwebsite" name="website" value="{{ username.website }}" type="text" minlength="2" maxlength="40"
                     class="validate" pattern="^[a-zA-Z0-9-_',/\:#.]{2,40}$" required>
                 <label for="bwebsite">Website</label>
             </div>
@@ -245,7 +245,7 @@
             <div class="input-field col s12 m6">
                 <!-- email -->
                 <input id="bemail" name="email" value="{{ username.email }}" type="email" minlength="10" maxlength="30"
-                    class="validate" pattern="^[a-zA-Z0-9-_',@]{10,30}$" required>
+                    class="validate" pattern="^[a-zA-Z0-9-_',@.]{10,30}$" required>
                 <label for="bemail">Email</label>
             </div>
             <div class="input-field col s12 m6">
@@ -259,7 +259,7 @@
             <!-- location -->
             <div class="input-field col s12 m6">
                 <input id="blocation" name="location" value="{{ username.location }}" type="text" class="validate"
-                    minlength="2" maxlength="30" pattern="^[a-zA-Z0-9-_',@]{2,30}$">
+                    minlength="2" maxlength="30" pattern="^[a-zA-Z0-9-_',@. ]{2,30}$">
                 <label for="blocation">Location</label>
             </div>
             <!-- Industry -->
