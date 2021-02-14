@@ -4,17 +4,19 @@
 <h1>Post a job</h1>
 
 <div class="row">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('post_job') }}">
 
         <div class="row">
             <!-- role/job title -->
             <div class="input-field col s12 m6">
-                <input id="role" name="role" value="" type="text" class="validate" minlength="5" maxlength="15">
+                <input id="role" name="role" value="" type="text" class="validate" minlength="2" maxlength="40"
+                pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
                 <label for="role">Role</label>
             </div>
             <!-- Location -->
             <div class="input-field col s12 m6">
-                <input id="location" name="location" value="" type="text" class="validate" minlength="3" maxlength="15">
+                <input id="location" name="location" value="" type="text" class="validate" minlength="2" maxlength="40"
+                pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
                 <label for="location">Location</label>
             </div>
         </div>
@@ -22,12 +24,13 @@
         <div class="row">
             <!-- Project name -->
             <div class="input-field col s12 m4">
-                <input id="proj_name" name="proj_name" type="text" class="validate" minlength="3" maxlength="30">
+                <input id="proj_name" name="proj_name" type="text" class="validate" minlength="2" maxlength="40"
+                pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
                 <label for="proj_name">Project name</label>
             </div>
             <!-- Industry -->
             <div class="input-field col s12 m4">
-                <select name="industry">
+                <select name="industry" required>
                     <option value="" disabled selected>Industry</option>
                     {% for industry in industries %}
                     <option value="{{ industry.ind_name }}">{{ industry.ind_name }}</option>
@@ -37,7 +40,7 @@
             </div>
             <!-- Job function -->
             <div class="input-field col s12 m4">
-                <select name="jfunc">
+                <select name="jfunc" required>
                     <option value="" disabled selected>Job Function</option>
                     {% for func in job_func %}
                     <option value="{{ func.func }}">{{ func.func }}</option>
@@ -50,8 +53,8 @@
         <div class="row">
             <!-- Description -->
             <div class="input-field col s12">
-                <textarea id="textarea" name="desc" value="" class="materialize-textarea"></textarea>
-                <label for="textarea">Description</label>
+                <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+                <label for="desc">Description</label>
             </div>
         </div>
 
@@ -72,7 +75,7 @@
         <!-- Skills input -->
         <div class="row">
             <div class="input-field col s12">
-                <input id="skills" name="skills" type="text" class="validate">
+                <input id="skills" name="skills" type="text" class="validate" pattern="^[a-zA-Z0-9 -_',]{5,500}$" required>
                 <label for="skills">Skills needed - Add 5 to 10</label>
                 <span class="helper-text">Type needed skills seperated by
                     commas (eg: Excel, Python, ... etc.)</span>
