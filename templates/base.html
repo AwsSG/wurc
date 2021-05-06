@@ -35,8 +35,6 @@
         <ul class="sidenav" id="mobile-demo">
             {% if session.user %}
             <li><a class="teal-text text-darken-4" href="{{ url_for('getwurc') }}">Matches</a></li>
-            <li><a class="teal-text text-darken-4" href="#">Listed Companies</a></li>
-            <li><a class="teal-text text-darken-4" href="#">Listed Jobs</a></li>
             <li><a class="teal-text text-darken-4" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
             </li>
             <li><a class="teal-text text-darken-4" href="{{ url_for('log_out') }}">Log out</a></li>
