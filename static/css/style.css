@@ -1,24 +1,24 @@
 body {
-display: flex;
-min-height: 100vh;
-flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .txt-shadow {
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
 }
 
 .flash-msgs h6 {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
 .hero-img {
-    filter: brightness(50%);
-    height: fit-content;
+  filter: brightness(50%);
+  height: fit-content;
 }
 
 /* changing the color style for the tabs was taken from the bellow link */
@@ -30,61 +30,61 @@ flex: 1 0 auto;
 }
 
 .tabs .tab a:hover {
-  color:#26a69a;
+  color: #26a69a;
   /*Custom Color On Hover*/
 }
 
 .tabs .tab a:focus.active {
-  color:#26a69a;
+  color: #26a69a;
   /*Custom Text Color While Active*/
   background-color: rgba(38, 166, 154, 0.2);
   /*Custom Background Color While Active*/
 }
 
 .tabs .indicator {
-  background-color:#26a69a;
+  background-color: #26a69a;
   /*Custom Color Of Indicator*/
 }
 
 /* End of copied code */
 
-#personal form, #company form {
-    padding-left: 0px;
-    padding-right: 0px;
+#personal form,
+#company form {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .center-page {
-    text-align: center;
+  text-align: center;
 }
 
 .flex-box {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .right-side {
-    float: right;
+  float: right;
 }
 
 .tight {
-    margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 
 .card-panel .left-highlight {
-    border-left: 3px solid #e0e0e0;
+  border-left: 3px solid #e0e0e0;
 }
 
 .collapsible .job-match {
-    padding: 5px 14px;
+  padding: 5px 14px;
 }
 
 .score {
-    border-radius: 50%;
-    width: 33px;
-    height: 33px;
-    padding: 5px;
-    margin-top: 8px;
-    margin-right: 25px;
-    text-align: center;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  padding: 5px;
+  margin-top: 8px;
+  margin-right: 25px;
+  text-align: center;
 }
-
