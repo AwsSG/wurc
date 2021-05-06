@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.sidenav').sidenav({ edge: "right" });
+    $('.sidenav').sidenav({ edge: "left" });
     $('.chips-placeholder').chips({
         placeholder: 'Enter your top skills (press enter after each skill)',
         secondaryPlaceholder: '+Tag',
