@@ -151,7 +151,37 @@ Update: in depth validation showed errors with select input having 2 selected op
         ![matching](testing/matches_business.PNG)
 
 ### Feature testing
+Different actions were performed in different order to further test the functionality of the site and to make sure that there are no errors, these tests were as follows:
 
+- register new personal user, then navigate to matches before completing profile
+    * result: success
+
+- register new business user, then navigate to matches before posting a job
+    * result: success
+
+- log in as personal user, then navigate to matches before completing profile
+    * result: success
+
+- log in as business user, then navigate to matches before posting a job
+    * result: success
+
+- log in as business user, post a job, navigate to matches
+    * result: success
+
+- log in as business user, post a job, update profile, navigate to matches
+    * result: success
+
+- log in as business user, post a job, navigate to matches, edit the same job, navigate again to matches
+    * result: success
+
+- log in as business user, post a job, navigate to matches, delete the same job, navigate again to matches
+    * result: success
+
+- log in as personal user, update profile, navigate to matches
+    * result: success
+
+- log in as personal user, update profile, navigate to matches, edit skills, navigate to matches again
+    * result: success
 
 ### Further Testing
 
