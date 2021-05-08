@@ -208,20 +208,135 @@ Different actions were performed in different order to further test the function
 - On non standard screen sizes, some text in the profile and fill_profile templates gets overlapped if the contents are long.
 - When viewing the list of matches for all the jobs listed by a business user, the job itself is not included. This can get confusing if a particular candidate is matched for more than one job.
 
-## Deployment
+## Deployment 
 
-### Heroku app
+### Configuration 
+Beneath your imports you will need to configure your run.py file. You will need to import your local env.py for local environments. For configuration for Heroku. 
 
-The project was deployed to heroku using the steps in the CI video as follows...
+Configure as follows:
 
-1. Created requirements.txt file in the terminal
-2. Created Procfile file in the terminal  
-3. Log in to heroku and click on creat new app
-4. created a uniqe name for the app and selected Europe region
-5. Set up GitHub automatic deployment by inputing my config variables first
-6. Pushed latest changes to GitHub
-7. Click "Enable automatic deployment" in heroku
-8. Click "Deploy Brach" on the master branch
+        if os.path.exists('env.py'):
+            import env
+
+
+        app = Flask(__name__)
+
+        app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
+        app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+        app.secret_key = os.environ.get('SECRET_KEY')
+
+        mongo = PyMongo(app)
+
+To start your application, you will need to use the following at the bottom of your app.py file. You will need to ensure that debug=False prior to deployment.
+
+        if __name__ == '__main__':
+            app.run(host=os.environ.get('IP'),
+                    port=int(os.environ.get('PORT')),
+                    debug=False)
+
+You will need to add a Procfile and ensure your requirements.txt are up to date. 
+In your root folder in the terminal type - touch Procfile -  this will create a Procfile
+Add the following with the following 
+    web: python run.py
+
+To install the requirements.txt use the following command in the terminal command line
+    pip3 install -r requirements.txt
+
+
+
+#### Local Environment
+Create env.py file in the same file system.  In your route folder type - touch env.py - to create the file. 
+Your virtual configurations should look similar to this. You will need to create a SECRET_KEY and input the IP and PORT settings. I used [Random Key Gen](https://randomkeygen.com/).
+
+        import os
+
+        # App config
+        os.environ.setdefault("IP", "0.0.0.0")
+        os.environ.setdefault("PORT", "5000")
+        os.environ.setdefault("SECRET_KEY", "<Your secret key>")
+
+        # MongoDB config
+        os.environ.setdefault(
+            "MONGO_URI", "mongodb+srv://<user>:<password>@<project>.af8bz.mongodb.net/<database>?retryWrites=true&w=majority")
+        os.environ.setdefault("MONGO_DBNAME", "<database>")
+
+
+
+### Adding and Committing files
+
+To add files to the repository, take the following steps
+
+In the command line type -
+        git add .  
+        git commit -m "This is being committed"
+        git push
+
+To add all new files or modified file use " ."  - To add a single file, use the pathway to the file eg .index.html  or assets/css/style.css
+When committing make sure your comments are clear about what changes have been made. 
+Pushing will send your work to the repository
+
+
+### Deploying 
+Requirements for deploying:
+* MongoDB Account
+* Heroku Account
+* Email account
+
+Deploying to [Heroku](https://dashboard.heroku.com/)
+
+* You will need to sign up to [Heroku](https://dashboard.heroku.com/)
+* Once logged in click the create new app button
+* Select the region closest to you and give the APP a name
+* Set your deployment method to 'GitHub'
+* Connect to GitHub and login
+* Search for the repository you wish to deploy from
+* You will need to head to settings and click 'Config Vars'
+    * You will now need to set up your Configuration Vars the same way as you did for your env.py   
+* Make sure you have set up your Procfile and you have updated the requirements.txt prior to deploying    
+* Click the deploy tab and go to manual deploy
+* Select the branch you wish to deploy and deploy the application
+* Once it is deployed you will be able to view the app
+* You can set it to automatically deploy every time you push to the repository by enabling the Automatic deploys
+
+
+### Forking
+
+Forking the GitHub Repository
+
+By forking the GitHub Repository, you can make a copy of the original repository in your own GitHub account.  This means we can view or make changes without making the changes affecting the original.
+
+* Log into GitHub and locate the GitHub Repository.
+* At the top of the Repository there is a "Fork" button about the "Settings" button on the menu.
+* You should now have a new copy of the original repository in your own GitHub account.
+* You will need to install the requirements.txt using the following command the command line
+        pip3 install -r requirements.txt
+* You will need to set up your local environments and key value pairs for deployment
+
+### Cloning 
+
+Making a Local Clone
+
+* Log into your GitHub then find the gitpod repository
+* Under the repository name there is a button that says, "Clone or download". Click on this button.
+* If cloning with HTTPS "Clone with HTTPS", copy this link.
+* Open Gitbash
+* Change the current working directory to the location where you want the cloned directory to be.
+* Type git clone, and then paste the URL you copied earlier.
+
+        $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+        Press - Enter- Your local clone will be created.
+        $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+                > Cloning into `CI-Clone`...
+                > remote: Counting objects: 10, done.
+                > remote: Compressing objects: 100% (8/8), done.
+                > remove: Total 10 (delta 1), reused 10 (delta 1)
+                > Unpacking objects: 100% (10/10), done.
+[Click Here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) for more info on cloning. 
+
+You will need to install the requirements.txt using the following command the command line
+        pip3 install -r requirements.txt
+* You will need to set up your local environments and key value pairs for deployment and running the application in your local environment. 
+
 
 ## Credits
 
@@ -236,4 +351,4 @@ The project was deployed to heroku using the steps in the CI video as follows...
 
 -   CI slack comunity for quick answers to short questions
 
--   My Mentor for continuous helpful feedback.
+-   My Mentor for the continuous helpful feedback.
