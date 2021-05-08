@@ -256,13 +256,13 @@
                 <!-- business name -->
                 <input id="bname" name="fname" value="{{ username.fname }}" type="text" minlength="2" maxlength="40"
                     class="validate" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
-                <label for="bname">Business name</label>
+                <label for="bname">Business name*</label>
             </div>
             <div class="input-field col s12 m6">
                 <!-- website -->
                 <input id="bwebsite" name="website" value="{{ username.website }}" type="text" minlength="2" maxlength="40"
                     class="validate" pattern="^[a-zA-Z0-9-_',/\:#.]{2,40}$" required>
-                <label for="bwebsite">Website</label>
+                <label for="bwebsite">Website*</label>
             </div>
         </div>
         <div class="row">
@@ -270,13 +270,13 @@
                 <!-- email -->
                 <input id="bemail" name="email" value="{{ username.email }}" type="email" minlength="10" maxlength="30"
                     class="validate" pattern="^[a-zA-Z0-9-_',@.]{10,30}$" required>
-                <label for="bemail">Email</label>
+                <label for="bemail">Email*</label>
             </div>
             <div class="input-field col s12 m6">
                 <!-- phone number -->
                 <input id="bphone" name="phone" value="{{ username.phone }}" type="text" class="validate" minlength="5"
                     maxlength="15" pattern="^[0-9+]{5,15}$" required>
-                <label for="bphone">Phone number</label>
+                <label for="bphone">Phone number*</label>
             </div>
         </div>
         <div class="row">
@@ -289,7 +289,11 @@
             <!-- Industry -->
             <div class="input-field col s12 m6">
                 <select name="industry" required>
-                    <option value="" disabled selected>Industry</option>
+                    {% if not username.industry %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for industry in industries %}
                         {% if industry.ind_name == username.industry %}
                             <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
@@ -298,7 +302,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Industry*</label>
             </div>
         </div>
         <div class="row">

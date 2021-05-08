@@ -31,7 +31,7 @@
             <!-- Industry -->
             <div class="input-field col s12 m4">
                 <select name="industry" required>
-                    <option value="" disabled selected>Industry</option>
+                    <option value="" disabled>Select</option>
                     {% for industry in industries %}
                         {% if industry.ind_name == job.industry %}
                             <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
@@ -40,12 +40,12 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Industry</label>
             </div>
             <!-- Job function -->
             <div class="input-field col s12 m4">
                 <select name="jfunc" required>
-                    <option value="" disabled selected>Job Function</option>
+                    <option value="" disabled>Select</option>
                     {% for func in job_func %}
                         {% if func.func == job.jfunc %}
                             <option value="{{ func.func }}" selected>{{ func.func }}</option>
@@ -54,7 +54,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Job Function</label>
             </div>
         </div>
 
