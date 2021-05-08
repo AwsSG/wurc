@@ -93,11 +93,15 @@
             <div class="input-field col s12 m4">
                 <input id="proj_role1" name="proj_role1" value="{{ username.proj_role1 }}" type="text" class="validate"
                 minlength="2" maxlength="40" pattern="^[a-zA-Z0-9 -_',]{2,40}$" required>
-                <label for="proj_role1">1st role/title</label>
+                <label for="proj_role1">1st role/title*</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry1" required>
-                    <option value="" disabled selected>Industry</option>
+                    {% if not username.industry1 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for industry in industries %}
                         {% if industry.ind_name == username.industry1 %}
                             <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
@@ -106,11 +110,15 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Industry*</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="job_func1" required>
-                    <option value="" disabled selected>Job Function</option>
+                    {% if not username.job_func1 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for func in job_func %}
                         {% if func.func == username.job_func1 %}
                             <option value="{{ func.func }}" selected>{{ func.func }}</option>
@@ -119,7 +127,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Job Function*</label>
             </div>
         </div>
         
@@ -132,7 +140,11 @@
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry2">
-                    <option value="" disabled selected>Industry</option>
+                    {% if not username.industry2 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for industry in industries %}
                         {% if industry.ind_name == username.industry2 %}
                             <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
@@ -141,11 +153,15 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Industry</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="job_func2">
-                    <option value="" disabled selected>Job Function</option>
+                    {% if not username.job_func2 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for func in job_func %}
                         {% if func.func == username.job_func2 %}
                             <option value="{{ func.func }}" selected>{{ func.func }}</option>
@@ -154,7 +170,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Job Function</label>
             </div>
         </div>
 
@@ -167,7 +183,11 @@
             </div>
             <div class="input-field col s12 m4">
                 <select name="industry3">
-                    <option value="" disabled selected>Industry</option>
+                    {% if not username.industry3 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for industry in industries %}
                         {% if industry.ind_name == username.industry3 %}
                             <option value="{{ industry.ind_name }}" selected>{{ industry.ind_name }}</option>
@@ -176,11 +196,15 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Industry</label>
             </div>
             <div class="input-field col s12 m4">
                 <select name="job_func3">
-                    <option value="" disabled selected>Job Function</option>
+                    {% if not username.job_func3 %}
+                        <option value="" disabled selected>Select</option>
+                    {% else %}
+                        <option value="" disabled>Select</option>
+                    {% endif %}
                     {% for func in job_func %}
                         {% if func.func == username.job_func3 %}
                             <option value="{{ func.func }}" selected>{{ func.func }}</option>
@@ -189,7 +213,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <label>Select</label>
+                <label>Job Function</label>
             </div>
         </div>
 
