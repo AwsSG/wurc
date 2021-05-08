@@ -93,6 +93,8 @@ This is a job board site with an automatic matching functionality, it has two ty
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in in the html and css. Aside from the Jinja template parts, there were no errors found.
 
+Update: in depth validation showed errors with select input having 2 selected options, and the hero image had no alt attribute. Measures were taken to fix these errors.
+
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### Individuals
@@ -100,17 +102,20 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     1.  An easy sign up step.
 
         1. The register/sig up page is one page input process, with no further confirmation steps.
+        ![register](testing/register_personal.PNG)
 
     2. A simple, straight forward, not too long profile page to fill, with ability to edit my details when I want to.
 
         1. The profile page has limited short and clear input fields.
         2. The user can edit or update the profile details at any point. 
+        ![profile](testing/profile.PNG)
 
     3. To get my matches (jobs) as soon as I log in.
 
         1. The user can get job matches by one step navigation to "matches" page.
         2. The user can get matches as soon as he/she registers, before the need to complete the profile.
         3. Completing or updatinng the profile is not required to get job matches.
+        ![matches](testing/matches_personal.PNG)
 
     4. Instead of the usual way of applying for each one, I want to get contacted by companies/organizations based on my matching score. 
 
@@ -122,14 +127,17 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     1.  Easily sign up and fill my company/organization details.
 
         1. The register/sig up page is one page input process, with no further confirmation steps.
-        2. Can start adding jobs as soon as they register, completing/updating profile is optional 
+        2. Can start adding jobs as soon as they register, completing/updating profile is optional.
+        ![register](testing/register_business.PNG)
 
     2. Add a job as often as I need with the ability to edit it, or delete it when I find what I want.
 
         1. Adding a job is a straight forward step, filling input fields and submitting the form.
+        ![post job](testing/post_job.PNG)
         2. User can add as many jobs as needed.
         3. User can edit any added job at any point.
         4. Can delete any added job at any point.
+        ![company profile](testing/company_profile.PNG)
 
     3. Add as much or as little details of the jobs I am posting as needed.
 
@@ -139,7 +147,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
         1. The candidate matches are displayed in ascending order for each job.
         2. Matching is based on the job details (skills).
-        3. Each potential candidate profile details are visible to the user, with the specific matched skills for the job. 
+        3. Each potential candidate profile details are visible to the user, with the specific matched skills for the job.
+        ![matching](testing/matches_business.PNG)
+
+### Feature testing
 
 
 ### Further Testing
