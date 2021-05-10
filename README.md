@@ -150,6 +150,9 @@ Update: in depth validation showed errors with select input having 2 selected op
         3. Each potential candidate profile details are visible to the user, with the specific matched skills for the job.
         ![matching](testing/matches_business.PNG)
 
+    In addition to the above, there is a section which will be developed in future, which is the hypothetical figures. This section is intended to pull statistics relevent to the session user once the database has enough records to make it meaningful.
+    ![matching](testing/stats.png)
+
 ### Feature testing
 Different actions were performed in different order to further test the functionality of the site and to make sure that there are no errors, these tests were as follows:
 
@@ -182,6 +185,8 @@ Different actions were performed in different order to further test the function
 
 - log in as personal user, update profile, navigate to matches, edit skills, navigate to matches again
     * result: success
+
+- In addition to the above, When the user (company or personal) has not filled in profile details yet, but they have skills to be matched (from a job post or from personal skills). The match appears with the relevent matching score regardless of the missing profile details. I thought of removing this part because it might provide false hope. However, I decided to keep This feature as is because of its potential to incentivise users to complete profile details once they see that there are matches. 
 
 ### Further Testing
 
