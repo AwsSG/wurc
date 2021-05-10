@@ -6,7 +6,7 @@
 
 <!-- check if user has completed profile -->
 {% if username.fname %}
-    <h1>Welcome {{ username.fname|capitalize }},</h1>
+    <h1>Welcome {{ session.user|capitalize }},</h1>
     <h6>Here is the summary of your profile</h6>
 {% else %}
     <h1>Welcome aboard!</h1>
@@ -184,11 +184,11 @@
 <!-- content if business profile -->
 
 {% if username.fname %}
-    <h1>Welcome {{ username.fname|capitalize }},</h1>
+    <h1>Welcome {{ session.user|capitalize }},</h1>
     <h6>Here is your business profile</h6>
 {% else %}
     <h1>Welcome aboard!</h1>
-    <h6>Add some details about your busines or post a job</h6>
+    <h6>Add some details about your business or post a job</h6>
 {% endif %}
 
     <div class="row">
