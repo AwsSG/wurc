@@ -39,7 +39,7 @@
         {% if member['company'] == true %}
         <!-- if business user -->
 
-            <h3>Greetings {{member.fname}},</h3>
+            <h3>Greetings {{ session.user }},</h3>
                 {% if not match_list %}
                     <!-- if the match list is empty (no jobs posted) -->
 
@@ -132,7 +132,7 @@
         {% else %}
         <!-- if personal user -->
 
-        <h3>Greetings {{member.fname}},</h3>
+        <h3>Greetings {{ session.user }},</h3>
 
             {% if match_list[0][0][0] == 0 %} <!-- if the first match (highest) is 0, then show no matches contents -->
 
